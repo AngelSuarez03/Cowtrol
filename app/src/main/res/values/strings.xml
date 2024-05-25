@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cowtrol</string>
+    
+    <!-- Login Activity -->
+    <string name="tv_ingresar_usuario">Ingrese su usuario</string>
+    <string name="tv_ingrese_contrasena">Ingrese su contraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="et_crear_cuenta">¿Aún no tienes una cuenta?</string>
 </resources>

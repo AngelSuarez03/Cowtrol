@@ -7,4 +7,5 @@
     <color name="primaryDark">#FF73845c</color>
     <color name="secondary">#FFa49482</color>
     <color name="surface">#FFc6b9ab</color>
+    <color name="hint">#FFBABABA</color>
 </resources>
