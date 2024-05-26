@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cowtrol"
+            android:text="@string/app_name"
             android:textSize="32sp"
             android:textColor="@color/white"
             android:layout_marginTop="4dp"
@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crear Cuenta"
+            android:text="@string/crear_cuenta"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="27dp"
@@ -60,9 +60,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de usuario"
+                android:text="@string/tipo_usuario"
                 android:textColor="@color/white"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="25dp"
                 android:textSize="20dp"
                 />
 
@@ -72,7 +72,8 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/border_edit_text"
                 />
         </LinearLayout>
 
@@ -80,9 +81,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="25dp"
             android:textSize="20dp"
-            android:text="Correo electrónico"
+            android:text="@string/correo_electronico"
             android:layout_marginTop="15dp"/>
 
         <EditText
@@ -90,17 +91,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/border_edit_text"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="25dp"
             android:textSize="20dp"
-            android:text="Contraseña"
+            android:text="@string/contrasenia"
             android:layout_marginTop="15dp"/>
 
         <EditText
@@ -108,8 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/border_edit_text"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:textSize="20dp"/>
 
         <Button
@@ -117,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="Crear Cuenta"
+            android:text="@string/crear_cuenta"
             android:textSize="20dp"
             android:textColor="@color/black"
             android:backgroundTint="@color/accent"
@@ -126,14 +127,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿Ya tiene una cuenta?"
+            android:text="@string/cuenta_existente"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:textStyle="normal"/>
 
-
     </LinearLayout>
-
-
 
 </LinearLayout>

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Cowtrol</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="tipo_usuario">Tipo de usuario</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="cuenta_existente">¿Ya tiene una cuenta?</string>
+    <string name="registrar_becerro">Registra un becerro</string>
+    <string name="macho">Macho</string>
+    <string name="hembra">Hembra</string>
+    <string name="nombre">Nombre</string>
+    <string name="siniiga">SINIIGA</string>
+    <string name="edad_becerro">Edad</string>
+    <string name="peso_becerro">Peso</string>
+    <string name="al_nacer">Al nacer</string>
+    <string name="al_destete">Al destete</string>
+    <string name="doce_meses">12 meses</string>
+    <string name="potrero">Potrero</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="registrar_animal">Registrar animal</string>
+    <string name="modificar_becerro">Modificar becerro</string>
+    <string name="guardar_cambios">Guardar cambios</string>
 </resources>
