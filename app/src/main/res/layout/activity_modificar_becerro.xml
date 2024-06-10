@@ -8,141 +8,9 @@
     android:orientation="vertical"
     android:background="@color/crema">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/modificar_becerro"
-        android:textSize="32dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/border_edit_text_becerro"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="190dp"
-        android:src="@drawable/logo"
-        android:layout_gravity="center"/>
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical"
-        android:background="@drawable/border_linear_layout_becerro"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/macho"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_text_view_macho"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hembra"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_text_view_hembra"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/border_edit_text"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:textSize="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/siniiga"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginStart="75dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/edad_becerro"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginStart="130dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <EditText
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_edit_text"
-                android:layout_marginStart="30dp"
-                android:textSize="20dp"/>
-
-            <EditText
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_edit_text"
-                android:layout_marginStart="30dp"
-                android:textSize="20dp"/>
-
-        </LinearLayout>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,121 +20,255 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/peso_becerro"
+                android:text="@string/modificar_becerro"
+                android:textSize="32dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_edit_text_becerro"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_edit_text"
-                android:layout_marginStart="30dp"
-                android:textSize="20dp"
-                android:hint="@string/al_nacer"
-                android:textAlignment="center"/>
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_edit_text"
-                android:layout_marginStart="24dp"
-                android:textSize="20dp"
-                android:hint="@string/al_destete"
-                android:textAlignment="center"/>
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_edit_text"
-                android:layout_marginStart="24dp"
-                android:textSize="20dp"
-                android:hint="@string/doce_meses"
-                android:textAlignment="center"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/potrero"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="70dp"/>
+                android:layout_height="190dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center" />
 
-            <Spinner
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="7dp"
-                android:background="@drawable/border_edit_text"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:orientation="vertical"
+                android:background="@drawable/border_linear_layout_becerro">
 
-                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/macho"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_text_view_macho"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hembra"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_text_view_hembra"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_edit_text"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/siniiga"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginStart="75dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/edad_becerro"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginStart="130dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <EditText
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_edit_text"
+                        android:layout_marginStart="30dp"
+                        android:textSize="20dp" />
+
+                    <EditText
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_edit_text"
+                        android:layout_marginStart="30dp"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/peso_becerro"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_edit_text"
+                        android:layout_marginStart="30dp"
+                        android:textSize="20dp"
+                        android:hint="@string/al_nacer"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_edit_text"
+                        android:layout_marginStart="24dp"
+                        android:textSize="20dp"
+                        android:hint="@string/al_destete"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_edit_text"
+                        android:layout_marginStart="24dp"
+                        android:textSize="20dp"
+                        android:hint="@string/doce_meses"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/potrero"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="70dp" />
+
+                    <Spinner
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/border_edit_text" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fecha_nacimiento"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_edit_text"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/boton_regresar_becerro"
+                        android:text=""
+                        android:textColor="@color/black" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/guardar_cambios"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/accent"
+                        android:layout_marginStart="27dp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fecha_nacimiento"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/border_edit_text"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:textSize="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/boton_regresar_becerro"
-                android:text="<-"
-                android:textColor="@color/black"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/guardar_cambios"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/accent"
-                android:layout_marginStart="27dp"
-                />
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
