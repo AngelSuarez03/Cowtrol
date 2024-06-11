@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">Cowtrol</string>
-    
+
     <!-- Login Activity -->
     <string name="tv_ingresar_usuario">Ingrese su usuario</string>
     <string name="tv_ingrese_contrasena">Ingrese su contraseña</string>
     <string name="btn_ingresar">Ingresar</string>
     <string name="et_crear_cuenta">¿Aún no tienes una cuenta?</string>
+
+    <!-- Principal Activity -->
+    <string name="tv_rancho">Rancho</string>
+    <string name="tv_usuario">Usuario</string>
+    <string name="tv_trabajador">Trabajador</string>
+    <string name="tv_becerro">Becerros</string>
+    <string name="tv_veterinario">Veterinarios</string>
+    <string name="tv_reporte">Reportes</string>
+    <string name="tv_evento">Eventos</string>
+    <string name="btn_cerrar_sesion">Cerrar Sesion</string>
 </resources>
