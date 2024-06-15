@@ -1,8 +1,10 @@
 package uv.tc.cowtrol.modelo
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import uv.tc.cowtrol.poko.Usuario
 
 class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, null, VERSION_BD) {
 
@@ -31,5 +33,19 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         TODO("Not yet implemented")
     }
 
+     fun insertarUsuario(usuario: Usuario): Long {
+        val db = writableDatabase
+        val valoresInsert = ContentValues()
+        valoresInsert.put(COL_CORREO, usuario.correo)
+        valoresInsert.put(COL_PASSWORD, usuario.password)
+        valoresInsert.put(COL_TIPO, usuario.tipo)
+        valoresInsert.put(COL_NOMBRE, usuario.nombre)
+        valoresInsert.put(COL_PUESTO, usuario.puesto)
+        valoresInsert.put(COL_SEXO, usuario.sexo)
+        valoresInsert.put(COL_EDAD, usuario.edad)
+        val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
+        db.close()
+        return filasAfectadas
+    }
 
 }

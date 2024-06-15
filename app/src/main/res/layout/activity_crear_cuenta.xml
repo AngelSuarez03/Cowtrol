@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,10 +46,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="417dp"
-                android:layout_marginTop="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/border_linear_layout_registro"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,42 +60,20 @@
                     android:text="@string/crear_cuenta"
                     android:textColor="@color/white"
                     android:textSize="27dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:text="@string/tipo_usuario"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="25dp"
-                        android:background="@drawable/border_edit_text"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-                </LinearLayout>
+                    android:textStyle="bold|normal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/correo_electronico"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textStyle="bold|normal"/>
 
                 <EditText
+                    android:id="@+id/et_correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -107,29 +87,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/contrasenia"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textStyle="bold|normal"/>
 
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="25dp"
-                    android:background="@drawable/border_edit_text"
-                    android:padding="5dp"
-                    android:textSize="23dp" />
+                    app:endIconMode="password_toggle"
+                    android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_edit_text"
+                        android:padding="5dp"
+                        android:textSize="23sp"
+                        android:inputType="textPassword"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
+                    android:id="@+id/btn_crear_cuenta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/border_btn_agregar_usuario"
                     android:backgroundTint="@color/accent"
-                    android:padding="12dp"
+                    android:paddingStart="75dp"
+                    android:paddingEnd="75dp"
                     android:text="@string/crear_cuenta"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -138,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
                     android:text="@string/cuenta_existente"
                     android:textStyle="normal" />
 
