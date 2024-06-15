@@ -2,6 +2,7 @@ package uv.tc.cowtrol.modelo
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import uv.tc.cowtrol.poko.Usuario
@@ -46,6 +47,20 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
         db.close()
         return filasAfectadas
+    }
+
+    fun validarUsuario(correo: String, password: String): Boolean{
+        val db = readableDatabase
+        var usuarioValido = false
+        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, null, "$COL_CORREO = ? AND $COL_PASSWORD = ?", arrayOf(correo, password), null, null, null)
+        if(resultadoConsulta != null){
+            if(resultadoConsulta.moveToFirst()){
+                usuarioValido = true
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return usuarioValido
     }
 
 }

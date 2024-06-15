@@ -51,7 +51,7 @@
     <string name="tipo_usuario">Tipo de usuario</string>
     <string name="correo_electronico">Correo electrónico</string>
     <string name="contrasenia">Contraseña</string>
-    <string name="cuenta_existente">¿Ya tiene una cuenta?</string>
+    <string name="cuenta_existente">¿Ya tienes una cuenta?</string>
     <string name="registrar_becerro">Registra un becerro</string>
     <string name="macho">Macho</string>
     <string name="hembra">Hembra</string>
