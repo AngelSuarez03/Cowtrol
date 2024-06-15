@@ -4,138 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearCuentaActivity"
+    android:background="@color/surface"
     android:orientation="vertical"
-    android:background="@color/surface">
+    tools:context=".CrearCuentaActivity">
 
-    <ScrollView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo"/>
 
-        <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"
+        android:textStyle="bold"
+        android:background="@drawable/bordes_text_view"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:background="@drawable/login_border_view_registro">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/crear_cuenta"
+            android:textColor="@color/white"
+            android:textSize="27dp"
+            android:textStyle="bold|normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/correo_electronico"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold|normal"/>
+
+        <EditText
+            android:id="@+id/et_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/border_edit_text"
+            android:padding="5dp"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"/>
 
-            <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/contrasenia"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold|normal"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            app:endIconMode="password_toggle"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:background="@drawable/border_edit_text"
+                android:padding="5dp"
+                android:textSize="22sp"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/logo"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textSize="32sp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="4dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/bordes_text_view"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"/>
-            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/border_linear_layout_registro"
-                android:orientation="vertical"
-                android:paddingBottom="30dp">
+        <Button
+            android:id="@+id/btn_crear_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/accent"
+            android:paddingStart="75dp"
+            android:paddingEnd="75dp"
+            android:text="@string/crear_cuenta"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/crear_cuenta"
-                    android:textColor="@color/white"
-                    android:textSize="27dp"
-                    android:textStyle="bold|normal" />
+        <TextView
+            android:id="@+id/et_cuenta_existente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:text="@string/cuenta_existente"
+            android:textStyle="normal" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/correo_electronico"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold|normal"/>
+    </LinearLayout>
 
-                <EditText
-                    android:id="@+id/et_correo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="25dp"
-                    android:background="@drawable/border_edit_text"
-                    android:padding="5dp"
-                    android:textSize="23dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/contrasenia"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold|normal"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="25dp"
-                    app:endIconMode="password_toggle"
-                    android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_edit_text"
-                        android:padding="5dp"
-                        android:textSize="23sp"
-                        android:inputType="textPassword"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <Button
-                    android:id="@+id/btn_crear_cuenta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:backgroundTint="@color/accent"
-                    android:paddingStart="75dp"
-                    android:paddingEnd="75dp"
-                    android:text="@string/crear_cuenta"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18dp"
-                    android:text="@string/cuenta_existente"
-                    android:textStyle="normal" />
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

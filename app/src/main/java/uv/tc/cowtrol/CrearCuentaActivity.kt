@@ -1,5 +1,6 @@
 package uv.tc.cowtrol
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -29,6 +30,12 @@ class CrearCuentaActivity : AppCompatActivity() {
                 agregarUsuario(nuevoUsuario)
             }
         }
+
+        binding.etCuentaExistente.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun agregarUsuario(usuario: Usuario) {
@@ -40,6 +47,10 @@ class CrearCuentaActivity : AppCompatActivity() {
             binding.etPassword.setText("")
             binding.etCorreo.error = null
             binding.etPassword.error = null
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         } else {
             mensaje = "Hubo un error al registrar el usuario, intentelo nuevamente"
         }
@@ -48,8 +59,15 @@ class CrearCuentaActivity : AppCompatActivity() {
 
     fun validarCamposUsuario(): Boolean {
         var valido = true
-        if (binding.etCorreo.text.isEmpty()) {
+        val correoValido = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+
+        val correo = binding.etCorreo.text.toString()
+
+        if (correo.isEmpty()) {
             binding.etCorreo.error = "Correo electrónico obligatorio"
+            valido = false
+        }else if(!correo.matches(correoValido.toRegex())){
+            binding.etCorreo.error = "Correo electrónico inválido"
             valido = false
         } else {
             binding.etCorreo.error = null
