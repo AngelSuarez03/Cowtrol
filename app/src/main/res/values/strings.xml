@@ -32,7 +32,6 @@
     <string name="titulo_potrero">Potrero</string>
     <string name="hint">Potrero</string>
     <string name="capacidad">Capacidad 10/30</string>
-    <string name="siniiga">SINIIGA:</string>
     <string name="edad">Edad:</string>
     <string name="vaca_nombre">Nombre:</string>
     <string name="reproduccion">Reproducción</string>
@@ -45,7 +44,6 @@
     <string name="registrar_becerro">Registra un becerro</string>
     <string name="macho">Macho</string>
     <string name="hembra">Hembra</string>
-    <string name="nombre">Nombre</string>
     <string name="siniiga">SINIIGA</string>
     <string name="edad_becerro">Edad</string>
     <string name="peso_becerro">Peso</string>
@@ -56,6 +54,5 @@
     <string name="fecha_nacimiento">Fecha de nacimiento</string>
     <string name="registrar_animal">Registrar animal</string>
     <string name="modificar_becerro">Modificar becerro</string>
-    <string name="guardar_cambios">Guardar cambios</string>
 
 </resources>

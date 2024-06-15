@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnPrueba.setOnClickListener {
-            val intent = Intent(this, RegistrarBecerroActivity::class.java)
+            val intent = Intent(this, CrearCuentaActivity::class.java)
             startActivity(intent)
         }
     }
