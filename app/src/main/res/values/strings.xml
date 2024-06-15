@@ -16,6 +16,15 @@
     <string name="tv_evento">Eventos</string>
     <string name="btn_cerrar_sesion">Cerrar Sesion</string>
 
+    <!-- Registrar Trabajador Activity -->
+    <string name="tv_registrar_trabajador_titulo">Registrar Trabajador</string>
+    <string name="tv_potrerio_asignado">Potrero Asignado</string>
+    <string name="tv_puesto_trabajador">Puesto</string>
+    <string name="rb_no_especifico">No especificar</string>
+    <string name="rb_hombre">Hombre</string>
+    <string name="rb_mujer">Mujer</string>
+    <string name="btn_guardar">Guardar</string>
+
     <!--Registro rancho-->
     <string name="registra_tu_rancho">Registra tu rancho</string>
     <string name="nombre">Nombre</string>
@@ -28,11 +37,13 @@
     <string name="modifica_tu_rancho">Modifica tu \nrancho</string>
     <string name="guardar_cambios">Guardar Cambios</string>
 
+
     <!--Visualizar potrero-->
     <string name="titulo_potrero">Potrero</string>
     <string name="hint">Potrero</string>
     <string name="capacidad">Capacidad 10/30</string>
-    <string name="edad">Edad:</string>
+    <string name="siniiga">SINIIGA:</string>
+    <string name="edad">Edad</string>
     <string name="vaca_nombre">Nombre:</string>
     <string name="reproduccion">Reproducción</string>
 
@@ -44,7 +55,6 @@
     <string name="registrar_becerro">Registra un becerro</string>
     <string name="macho">Macho</string>
     <string name="hembra">Hembra</string>
-    <string name="siniiga">SINIIGA</string>
     <string name="edad_becerro">Edad</string>
     <string name="peso_becerro">Peso</string>
     <string name="al_nacer">Al nacer</string>
