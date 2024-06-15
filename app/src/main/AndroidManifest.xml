@@ -12,6 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cowtrol"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ModificarBecerroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarBecerroActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".CrearCuentaActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".VisualizarPotreroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ModificarRanchoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroRanchoActivity"
+            android:exported="false" />
         <activity
             android:name=".PrincipalActivity"
             android:exported="false" />

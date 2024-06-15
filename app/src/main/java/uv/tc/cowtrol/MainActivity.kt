@@ -1,10 +1,12 @@
 package uv.tc.cowtrol
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import uv.tc.cowtrol.databinding.ActivityCrearCuentaBinding
 import uv.tc.cowtrol.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,5 +16,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.btnPrueba.setOnClickListener {
+            val intent = Intent(this, RegistrarBecerroActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
