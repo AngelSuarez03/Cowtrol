@@ -5,16 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import uv.tc.cowtrol.databinding.ActivityLoginBinding
+import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
+    lateinit var potreroBd: PotreroBD
     lateinit var modelo: UsuariosBD
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        potreroBd = PotreroBD(this@LoginActivity)
+
+        //potreroBd.crearTablaPotrero()
         modelo = UsuariosBD(this@LoginActivity)
 
         var mensaje = ""

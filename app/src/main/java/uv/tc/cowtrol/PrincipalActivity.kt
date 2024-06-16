@@ -17,5 +17,9 @@ class PrincipalActivity : AppCompatActivity() {
             val intent = Intent(this, MenuBecerroActivity::class.java)
             startActivity(intent)
         }
+        binding.llTrabajador.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, RegistrarTrabajadorActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -33,6 +33,12 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
 
     }
 
+    fun crearTablaPotrero(){
+        val db = writableDatabase
+        val CREATE_TABLE_POTRERO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NUMERO_POTRERO} INT PRIMARY KEY, ${COL_NOMBRE} TEXT, ${COL_CAPACIDAD} INT, ${COL_UBICACION} TEXT, ${COL_ANCHO} REAL, ${COL_LARGO} REAL, ${COL_ALTO} )")
+        db!!.execSQL(CREATE_TABLE_POTRERO);
+    }
+
     fun crearPotrero(potrero: Potrero): Long {
         val db = writableDatabase
         val valoresInsert = ContentValues().apply {
@@ -50,13 +56,13 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
     }
 
     @SuppressLint("Range")
-    fun retornasPotrerosRegistrados(): List<Potrero> {
+    fun retornarPotrerosRegistrados(): List<Potrero> {
         val potreros = mutableListOf<Potrero>()
         val db = readableDatabase
         val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, null,null,null,null,null)
         if(resultadoConsulta != null){
             while (resultadoConsulta.moveToNext()){
-                val numeroPotrero =resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                val numeroPotrero = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
                     COL_NUMERO_POTRERO))
                 val nombrePotrero = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
                     COL_NOMBRE))

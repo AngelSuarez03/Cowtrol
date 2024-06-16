@@ -26,7 +26,7 @@
     
     <ImageView
         android:layout_width="250dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
@@ -65,7 +65,7 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <Spinner
-            android:id="@+id/sp_potrerio_asignado"
+            android:id="@+id/sp_potrero_asignado"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="13dp"
@@ -129,10 +129,28 @@
 
         </GridLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/correo_electronico"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/et_correo_trabajador"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/et_campo_datos"/>
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/rb_hombre"
@@ -158,6 +176,7 @@
                 android:background="@drawable/border_text_view_hembra"/>
 
         </RadioGroup>
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -167,7 +186,7 @@
                 android:id="@+id/btn_regresar"
                 android:layout_width="20dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/button_background"
@@ -180,7 +199,7 @@
                 android:id="@+id/btn_registrar_trabajador"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/btn_background"
