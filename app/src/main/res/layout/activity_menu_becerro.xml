@@ -30,30 +30,67 @@
         android:paddingBottom="10dp"
         android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/btn_registrar_becerro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/accent"
-        android:paddingStart="75dp"
-        android:paddingEnd="75dp"
-        android:text="@string/registrar_becerro_menu"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/btn_ver_becerros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+    <LinearLayout
+        android:id="@+id/ln_registrar_becerro"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/accent"
-        android:paddingStart="75dp"
-        android:paddingEnd="75dp"
-        android:text="@string/ver_becerros"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:layout_gravity="center"
+        android:background="@drawable/border_linear_layout_becerro">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/cow"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registrar_becerro_menu"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="28dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_ver_becerro"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/border_linear_layout_becerro">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/list_box_outline"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_becerros"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="28dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_regresar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/arrow_left_bold"/>
 
 </LinearLayout>

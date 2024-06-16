@@ -16,8 +16,13 @@ class MenuBecerroActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.btnRegistrarBecerro.setOnClickListener {
+        binding.lnRegistrarBecerro.setOnClickListener {
             val intent = Intent(this@MenuBecerroActivity, RegistrarBecerroActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnRegresar.setOnClickListener{
+            val intent = Intent(this@MenuBecerroActivity, PrincipalActivity::class.java)
             startActivity(intent)
         }
     }

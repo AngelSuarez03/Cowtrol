@@ -8,275 +8,297 @@
     android:orientation="vertical"
     android:background="@color/primary">
 
-    <ScrollView
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_edit_text_becerro"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp"
+        android:text="@string/registrar_becerro"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold|normal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/border_linear_layout_agregar_becerro">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_macho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/macho"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:background="@drawable/border_text_view_macho"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_hembra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hembra"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:background="@drawable/border_text_view_hembra"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:id="@+id/et_nombre_becerro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border_edit_text"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:textSize="23dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:inputType="text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_edit_text_becerro"
-                android:paddingStart="20dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="8dp"
-                android:text="@string/registrar_becerro"
+                android:text="@string/siniiga"
                 android:textColor="@color/white"
-                android:textSize="32dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="-15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edad_becerro"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="80dp"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:id="@+id/et_sinniga"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_edit_text"
+                android:textSize="23sp"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:maxLength="7"/>
+
+            <EditText
+                android:id="@+id/et_edad_becerro"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_edit_text"
+                android:layout_marginStart="10dp"
+                android:textSize="23sp"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:maxLength="3"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peso_becerro"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/et_peso_nacer"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_edit_text"
+                android:hint="@string/al_nacer"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/et_peso_destete"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/border_edit_text"
+                android:textSize="23sp"
+                android:padding="5dp"
+                android:hint="@string/al_destete"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"/>
+
+            <EditText
+                android:id="@+id/et_peso_doce"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/border_edit_text"
+                android:textSize="23sp"
+                android:hint="@string/doce_meses"
+                android:textAlignment="center"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/potrero"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinner_potrero"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fecha_nacimiento"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:id="@+id/et_fecha_nacimiento_becerro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border_edit_text"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:textSize="23dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:drawableEnd="@drawable/calendar_check"
+            android:focusable="false"
+            android:clickable="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/btn_regresar_menu_becerro"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/button_background"
+                android:backgroundTint="@color/primary"
+                android:src="@drawable/arrow_left_bold"/>
+
+            <Button
+                android:id="@+id/btn_registrar_animal"
                 android:layout_width="wrap_content"
-                android:layout_height="190dp"
-                android:src="@drawable/logo"
-                android:layout_gravity="center" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/border_linear_layout_agregar_becerro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/macho"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_text_view_macho"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hembra"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginStart="47dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/border_text_view_hembra"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nombre"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_gravity="center" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/border_edit_text"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:textSize="23dp"
-                    android:padding="5dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/siniiga"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginStart="63dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/edad_becerro"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginStart="108dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center">
-
-                    <EditText
-                        android:layout_width="134dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_edit_text"
-                        android:layout_marginStart="30dp"
-                        android:textSize="23dp"
-                        android:padding="5dp"/>
-
-                    <EditText
-                        android:layout_width="134dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_edit_text"
-                        android:layout_marginStart="30dp"
-                        android:textSize="23dp"
-                        android:padding="5dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/peso_becerro"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_gravity="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_edit_text"
-                        android:layout_marginStart="30dp"
-                        android:textSize="23dp"
-                        android:hint="@string/al_nacer"
-                        android:textAlignment="center"
-                        android:padding="5dp"/>
-
-                    <EditText
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_edit_text"
-                        android:layout_marginStart="24dp"
-                        android:textSize="23dp"
-                        android:padding="5dp"
-                        android:hint="@string/al_destete"
-                        android:textAlignment="center" />
-
-                    <EditText
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/border_edit_text"
-                        android:layout_marginStart="24dp"
-                        android:textSize="23dp"
-                        android:hint="@string/doce_meses"
-                        android:textAlignment="center"
-                        android:padding="5dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/potrero"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="30dp" />
-
-                    <Spinner
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="7dp"
-                        android:background="@drawable/border_edit_text" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fecha_nacimiento"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/border_edit_text"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:textSize="23dp"
-                    android:padding="5dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="70dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/boton_regresar_becerro"
-                        android:text=""
-                        android:textColor="@color/black" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/registrar_animal"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/accent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="30dp"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:text="@string/registrar_animal"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/accent"
+                android:layout_marginEnd="30dp"/>
         </LinearLayout>
-    </ScrollView>
+
+
+    </LinearLayout>
+
+
 </LinearLayout>
