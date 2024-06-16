@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/potrero_background"
+    tools:context=".poko.AnadirPotreroActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/white"
+        android:background="@drawable/text_view_titulos_background"
+        android:text="@string/tv_registra_potrero_titulo"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:textAlignment="center"
+        android:padding="10dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/agregar_potrero"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ll_agregar_potrero_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/tv_nombre"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
+
+        <EditText
+            android:id="@+id/et_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_background" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:text="@string/tv_ubicacion"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
+
+        <EditText
+            android:id="@+id/et_ubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_background" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:text="@string/tv_tamanio"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_ancho"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/et_ancho"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/et_largo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/et_largo"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/et_alto"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/et_alto"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tv_capacidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/tv_capacidad"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_capacidad"
+                android:layout_alignStart="@id/tv_capacidad"
+                android:layout_alignEnd="@id/tv_capacidad"
+                android:background="@drawable/edit_text_background"/>
+
+            <TextView
+                android:id="@+id/tv_numero_potrero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/tv_numero_potrero"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_numero_potrero"
+                android:layout_alignStart="@id/tv_numero_potrero"
+                android:layout_alignEnd="@id/tv_numero_potrero"
+                android:background="@drawable/edit_text_background"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageButton
+                android:layout_width="39dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/boton_regresar_anadir_potrero"
+                android:src="@drawable/arrow_left_bold"/>
+            <Button
+                android:id="@+id/bt_registrar_potrero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/accent"
+                android:text="@string/bt_registrar_potrero"
+                android:shadowColor="@color/white"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

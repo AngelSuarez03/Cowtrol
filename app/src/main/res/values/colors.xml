@@ -12,6 +12,6 @@
     <color name="blue">#6297FF</color>
     <color name="pink">#FF5FF9</color>
     <color name="crema">#F9F0F0</color>
-    <color name="blueDark">#4165CC</color>
-    <color name="pinkDark">#CC47CC</color>
+    <color name="titulos_background">#FF8F8F77</color>
+    <color name="potrero_background">#FFD1C9B7</color>
 </resources>

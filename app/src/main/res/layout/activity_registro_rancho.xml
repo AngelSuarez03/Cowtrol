@@ -9,21 +9,25 @@
     android:orientation="vertical"
     tools:context=".RegistroRanchoActivity">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:text="@string/registra_tu_rancho"
-                    android:textColor="@color/white"
-                    android:background="@drawable/text_view_titulos_background"
-                    android:textSize="32dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:padding="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/registra_tu_rancho"
+            android:textColor="@color/white"
+            android:background="@drawable/text_view_titulos_background"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textAlignment="center"
+            android:padding="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,8 +44,13 @@
                     android:text="@string/nombre"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
                 <EditText
+                    android:id="@+id/et_nombre_registro_rancho"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -57,8 +66,13 @@
                     android:text="@string/ubicacion"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
                 <EditText
+                    android:id="@+id/et_ubicacion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -74,13 +88,20 @@
                     android:text="@string/telefono"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
                 <EditText
+                    android:id="@+id/et_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="20dp"
+                    android:inputType="number"
+                    android:maxLength="10"
                     android:background="@drawable/edit_text_background"/>
 
                 <TextView
@@ -91,8 +112,13 @@
                     android:text="@string/provincia"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
                 <EditText
+                    android:id="@+id/et_provincia"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -103,6 +129,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/bt_registrar_rancho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -111,6 +138,10 @@
             android:text="@string/registrar_rancho"
             android:textStyle="bold"
             android:textSize="16dp"
+            android:shadowColor="@color/white"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"
             android:textColor="@color/black"/>
 
         <ImageView
@@ -123,7 +154,7 @@
             android:layout_width="39dp"
             android:layout_height="37dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/boton_regresar_modificar_rancho"
             android:src="@drawable/arrow_left_bold" />
 
 </LinearLayout>

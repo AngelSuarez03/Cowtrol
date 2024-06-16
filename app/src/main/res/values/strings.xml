@@ -37,6 +37,17 @@
     <string name="modifica_tu_rancho">Modifica tu \nrancho</string>
     <string name="guardar_cambios">Guardar Cambios</string>
 
+    <!--Agregar potrero-->
+    <string name="tv_registra_potrero_titulo">Registra un\npotrero</string>
+    <string name="tv_nombre">Nombre</string>
+    <string name="tv_ubicacion">Ubicación</string>
+    <string name="tv_tamanio">Tamaño</string>
+    <string name="et_ancho">Ancho</string>
+    <string name="et_largo">Largo</string>
+    <string name="et_alto">Alto</string>
+    <string name="tv_capacidad">Capacidad</string>
+    <string name="tv_numero_potrero">Número de potrero</string>
+    <string name="bt_registrar_potrero">Registrar Potrero</string>
 
     <!--Visualizar potrero-->
     <string name="titulo_potrero">Potrero</string>
@@ -64,6 +75,11 @@
     <string name="fecha_nacimiento">Fecha de nacimiento</string>
     <string name="registrar_animal">Registrar animal</string>
     <string name="modificar_becerro">Modificar becerro</string>
+
+    <!--Asesoría veterinaria-->
+    <string name="tv_asesoria_veterinaria">Asesoría \nveterinaria</string>
+    <string name="tv_nombre_veterinario">Nombre:</string>
+    <string name="tv_telefono">Teléfono:</string>
 
     <!--Menu becerro-->
     <string name="seleccion_opcion_becerro">Mis becerros</string>
