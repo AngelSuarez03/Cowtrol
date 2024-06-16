@@ -65,4 +65,9 @@
     <string name="registrar_animal">Registrar animal</string>
     <string name="modificar_becerro">Modificar becerro</string>
 
+    <!--Menu becerro-->
+    <string name="seleccion_opcion_becerro">Mis becerros</string>
+    <string name="registrar_becerro_menu">Registrar becerro</string>
+    <string name="ver_becerros">Ver becerros</string>
+
 </resources>

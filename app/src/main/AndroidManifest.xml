@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Cowtrol"
         tools:targetApi="31">
         <activity
+            android:name=".MenuBecerroActivity"
+            android:exported="false" />
+        <activity
             android:name=".PruebaActivity"
             android:exported="false" />
         <activity
