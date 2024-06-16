@@ -29,6 +29,12 @@ class RanchoBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         TODO("Not yet implemented")
     }
 
+    fun crearTabla(){
+        val db = writableDatabase
+        val CREATE_TABLE_RANCHO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NOMBRE} TEXT, ${COL_UBICACION} TEXT, ${COL_TELEFONO} INTEGER, ${COL_PROVINCIA} TEXT, PRIMARY KEY($COL_NOMBRE,$COL_UBICACION)")
+        db!!.execSQL(CREATE_TABLE_RANCHO)
+    }
+
     fun crearRancho(rancho: Rancho):Long{
         val db = writableDatabase
         val valoresInsert = ContentValues()
