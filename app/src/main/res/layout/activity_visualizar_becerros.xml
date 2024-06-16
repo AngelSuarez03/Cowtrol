@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VisualizarBecerrosActivity"
+    android:orientation="vertical"
+    android:background="@color/primary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_edit_text_becerro"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp"
+        android:text="@string/becerros_registrados"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold|normal" />
+
+    <TextView
+        android:id="@+id/tv_sin_becerros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:text="@string/no_becerros"
+        android:layout_marginTop="20dp"
+        android:textStyle="normal"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_becerros"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/btn_regresar_menu_becerro"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/boton_regresar_modificar_rancho"
+        android:backgroundTint="@color/primaryDark"
+        android:src="@drawable/arrow_left_bold"/>
+
+</LinearLayout>

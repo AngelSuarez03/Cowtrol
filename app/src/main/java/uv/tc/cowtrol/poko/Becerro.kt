@@ -9,5 +9,6 @@ data class Becerro(
     val pesoDestete: Float?,
     val pesoDoce: Float?,
     val potrero: String,
-    val fechaNacimiento: String
+    val fechaNacimiento: String,
+    val correoUsuario: String
 )

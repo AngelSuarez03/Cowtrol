@@ -28,12 +28,18 @@ class RegistrarBecerroActivity : AppCompatActivity() {
     private var sexoSeleccionado: String? = null
     private lateinit var modelo: BecerroBD
     private var potreroSeleccionado: String = ""
+    private lateinit var cargarBecerros : VisualizarBecerrosActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarBecerroBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         modelo = BecerroBD(this@RegistrarBecerroActivity)
+        cargarBecerros = VisualizarBecerrosActivity()
+
+        val correo = intent.getStringExtra("correo")
+
+        //modelo.dropTable()
 
         //modelo.crearTabla()
 
@@ -88,9 +94,11 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                     binding.etPesoDestete.text.toString().toFloat(),
                     binding.etPesoDoce.text.toString().toFloat(),
                     potreroSeleccionado,
-                    binding.etFechaNacimientoBecerro.text.toString()
+                    binding.etFechaNacimientoBecerro.text.toString(),
+                    correo.toString()
                 )
                 agregarBecerro(nuevoBecerro)
+                cargarBecerros.cargarMisBecerros()
             }
         }
 

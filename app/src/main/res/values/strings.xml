@@ -86,4 +86,8 @@
     <string name="registrar_becerro_menu">Registrar becerro</string>
     <string name="ver_becerros">Ver becerros</string>
 
+    <string name="editar_becerro">Editar</string>
+    <string name="becerros_registrados">Becerros registrados</string>
+    <string name="no_becerros">Por el momento no hay becerros registrados</string>
+
 </resources>

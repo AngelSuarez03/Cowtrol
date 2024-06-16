@@ -13,8 +13,12 @@ class PrincipalActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val correo = intent.getStringExtra("correo")
+
         binding.opcionBecerro.setOnClickListener {
-            val intent = Intent(this, MenuBecerroActivity::class.java)
+            val intent = Intent(this, MenuBecerroActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
         binding.llTrabajador.setOnClickListener {

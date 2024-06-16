@@ -29,7 +29,9 @@ class LoginActivity : AppCompatActivity() {
             if(modelo.validarUsuario(correo, password)){
                 mensaje = "Bienvenido a Cowtrol"
                 Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, PrincipalActivity::class.java)
+                val intent = Intent(this, PrincipalActivity::class.java).apply {
+                    putExtra("correo", correo)
+                }
                 startActivity(intent)
                 finish()
             }else{
