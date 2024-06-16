@@ -23,6 +23,10 @@
         android:textSize="32dp"
         android:textStyle="bold"
         android:textAlignment="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:padding="15dp"/>
 
     <LinearLayout
@@ -40,7 +44,11 @@
             android:text="@string/nombre"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -57,7 +65,11 @@
             android:text="@string/ubicacion"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -74,7 +86,11 @@
             android:text="@string/telefono"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -91,7 +107,11 @@
             android:text="@string/provincia"
             android:textColor="@color/white"
             android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -112,7 +132,11 @@
         android:text="@string/guardar_cambios"
         android:textStyle="bold"
         android:textSize="16dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"/>
 
     <ImageView
         android:layout_width="39dp"

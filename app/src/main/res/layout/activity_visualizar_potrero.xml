@@ -22,6 +22,10 @@
         android:textSize="32dp"
         android:textStyle="bold"
         android:textAlignment="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:padding="15dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -42,7 +46,8 @@
             android:background="@drawable/autocompletetextview_background"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +61,11 @@
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:textAlignment="textEnd"/>
+        android:textAlignment="textEnd"
+        android:shadowColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -114,7 +123,11 @@
                                 android:text="@string/siniiga"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:shadowColor="@color/white"
+                                android:shadowDx="2"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"/>
 
                             <TextView
                                 android:id="@+id/edad"
@@ -124,7 +137,11 @@
                                 android:text="@string/edad"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:shadowColor="@color/white"
+                                android:shadowDx="2"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"/>
 
                             <TextView
                                 android:id="@+id/nombre"
@@ -134,7 +151,11 @@
                                 android:text="@string/vaca_nombre"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:shadowColor="@color/white"
+                                android:shadowDx="2"
+                                android:shadowDy="1"
+                                android:shadowRadius="1"/>
 
                         </LinearLayout>
 
@@ -188,7 +209,11 @@
         android:text="@string/reproduccion"
         android:textStyle="bold"
         android:textSize="16dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"/>
 
     <ImageView
         android:layout_width="39dp"

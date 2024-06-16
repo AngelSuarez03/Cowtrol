@@ -18,6 +18,10 @@
         android:textSize="32dp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:background="@drawable/text_view_titulos_background"
         android:paddingStart="20dp"
         android:paddingTop="8dp"
@@ -46,7 +50,11 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:id="@+id/et_nombre_trabajador"
             android:layout_width="match_parent"
@@ -63,7 +71,11 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <Spinner
             android:id="@+id/sp_potrero_asignado"
             android:layout_width="match_parent"
@@ -88,6 +100,10 @@
                 android:textSize="20dp"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_columnWeight="1"/>
@@ -112,6 +128,10 @@
                 android:textSize="20dp"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:layout_row="0"
                 android:layout_column="1"
                 android:layout_columnWeight="3"/>
@@ -137,7 +157,11 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
         <EditText
             android:id="@+id/et_correo_trabajador"
             android:layout_width="match_parent"
@@ -162,6 +186,10 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="20dp"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:background="@drawable/border_text_view_macho"/>
             <RadioButton
                 android:id="@+id/rb_mujer"
@@ -173,6 +201,10 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="20dp"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:background="@drawable/border_text_view_hembra"/>
 
         </RadioGroup>
@@ -208,6 +240,10 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="center"
+                android:shadowColor="@color/white"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:layout_row="0"
                 android:layout_column="1"
                 android:layout_columnWeight="3"/>
