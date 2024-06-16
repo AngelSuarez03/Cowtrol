@@ -24,6 +24,10 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/border_edit_text_becerro"
@@ -56,6 +60,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginStart="60dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/border_text_view_macho"
@@ -71,6 +79,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginStart="40dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/border_text_view_hembra"
@@ -87,6 +99,10 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
                     android:layout_marginTop="8dp"
                     android:layout_gravity="center" />
 
@@ -113,6 +129,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginStart="75dp" />
 
                     <TextView
@@ -122,6 +142,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginStart="130dp" />
                 </LinearLayout>
 
@@ -160,6 +184,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginTop="8dp"
                         android:layout_gravity="center" />
                 </LinearLayout>
@@ -213,6 +241,10 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="20dp"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:layout_marginTop="8dp"
                         android:layout_marginStart="70dp" />
 
@@ -233,7 +265,11 @@
                     android:textStyle="bold"
                     android:textSize="20dp"
                     android:layout_marginTop="8dp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="2"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -265,6 +301,10 @@
                         android:text="@string/guardar_cambios"
                         android:textSize="20dp"
                         android:textColor="@color/black"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
                         android:backgroundTint="@color/accent"
                         android:layout_marginStart="27dp" />
                 </LinearLayout>
