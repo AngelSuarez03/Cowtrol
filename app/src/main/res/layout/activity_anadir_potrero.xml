@@ -63,6 +63,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="15dp"
+            android:textColor="@color/black"
             android:background="@drawable/edit_text_background" />
 
         <TextView
@@ -86,6 +87,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="15dp"
+            android:textColor="@color/black"
             android:background="@drawable/edit_text_background" />
 
         <TextView
@@ -118,7 +120,8 @@
                 android:hint="@string/et_ancho"
                 android:padding="2dp"
                 android:textAlignment="center"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/et_largo"
@@ -130,7 +133,8 @@
                 android:hint="@string/et_largo"
                 android:padding="2dp"
                 android:textAlignment="center"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/et_alto"
@@ -142,7 +146,8 @@
                 android:hint="@string/et_alto"
                 android:padding="2dp"
                 android:textAlignment="center"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 
@@ -172,6 +177,7 @@
                 android:layout_below="@id/tv_capacidad"
                 android:layout_alignStart="@id/tv_capacidad"
                 android:layout_alignEnd="@id/tv_capacidad"
+                android:textColor="@color/black"
                 android:background="@drawable/edit_text_background"/>
 
             <TextView
@@ -196,6 +202,7 @@
                 android:layout_below="@id/tv_numero_potrero"
                 android:layout_alignStart="@id/tv_numero_potrero"
                 android:layout_alignEnd="@id/tv_numero_potrero"
+                android:textColor="@color/black"
                 android:background="@drawable/edit_text_background"/>
         </RelativeLayout>
 

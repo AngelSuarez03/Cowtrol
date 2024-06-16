@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uv.tc.cowtrol.databinding.ActivityCrearCuentaBinding
 import uv.tc.cowtrol.databinding.ActivityMainBinding
+import uv.tc.cowtrol.poko.AnadirPotreroActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
