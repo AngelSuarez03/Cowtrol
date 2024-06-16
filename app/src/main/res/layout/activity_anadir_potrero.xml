@@ -114,39 +114,41 @@
                 android:id="@+id/et_ancho"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/et_ancho"
                 android:padding="2dp"
                 android:textAlignment="center"
                 android:textSize="16dp"
+                android:inputType="numberDecimal"
                 android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/et_largo"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/et_largo"
                 android:padding="2dp"
                 android:textAlignment="center"
                 android:textSize="16dp"
+                android:inputType="numberDecimal"
                 android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/et_alto"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/et_alto"
                 android:padding="2dp"
                 android:textAlignment="center"
                 android:textSize="16dp"
+                android:inputType="numberDecimal"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -172,12 +174,14 @@
                 android:shadowRadius="1"/>
 
             <EditText
+                android:id="@+id/et_capacidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_capacidad"
                 android:layout_alignStart="@id/tv_capacidad"
                 android:layout_alignEnd="@id/tv_capacidad"
                 android:textColor="@color/black"
+                android:inputType="number"
                 android:background="@drawable/edit_text_background"/>
 
             <TextView
@@ -197,12 +201,14 @@
                 android:shadowRadius="1"/>
 
             <EditText
+                android:id="@+id/et_numero_potrero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_numero_potrero"
                 android:layout_alignStart="@id/tv_numero_potrero"
                 android:layout_alignEnd="@id/tv_numero_potrero"
                 android:textColor="@color/black"
+                android:inputType="number"
                 android:background="@drawable/edit_text_background"/>
         </RelativeLayout>
 
@@ -210,6 +216,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageButton
+                android:id="@+id/bt_regresar_anadir_potrero"
                 android:layout_width="39dp"
                 android:layout_height="37dp"
                 android:layout_marginTop="10dp"

@@ -104,7 +104,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/black"
-                    android:inputType="number"
+                    android:inputType="phone"
                     android:maxLength="10"
                     android:background="@drawable/edit_text_background"/>
 
@@ -151,11 +151,12 @@
 
         <ImageView
             android:layout_width="580px"
-            android:layout_height="155dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:background="@drawable/img_registro_rancho" />
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/bt_regresar_registro_rancho"
             android:layout_width="39dp"
             android:layout_height="37dp"
             android:layout_marginLeft="10dp"

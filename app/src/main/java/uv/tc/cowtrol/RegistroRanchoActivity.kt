@@ -21,6 +21,7 @@ class RegistroRanchoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = RanchoBD(this@RegistroRanchoActivity)
+        //modelo.crearTabla()
 
         binding.btRegistrarRancho.setOnClickListener{
             if (validarCampos()){
@@ -37,7 +38,7 @@ class RegistroRanchoActivity : AppCompatActivity() {
         if (resultadoInsercion>0){
             mensaje = "Rancho creado con éxito"
             binding.etNombreRegistroRancho.setText("")
-            binding.etUbicacion.setText("")
+            binding.etTelefono.setText("")
             binding.etUbicacion.setText("")
             binding.etProvincia.setText("")
         }else {
