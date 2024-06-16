@@ -15,4 +15,6 @@
     <color name="blueDark">#4165CC</color>
     <color name="pinkDark">#CC47CC</color>
     <color name="prueba">#67DNS7</color>
+    <color name="titulos_background">#FF8F8F77</color>
+    <color name="potrero_background">#FFD1C9B7</color>
 </resources>
