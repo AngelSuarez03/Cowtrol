@@ -7,6 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import androidx.core.content.contentValuesOf
 import uv.tc.cowtrol.poko.Becerro
 
 class BecerroBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null, VERSION_BD) {
@@ -96,5 +97,21 @@ class BecerroBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null
         }
         db.close()
         return  misBecerros
+    }
+
+    fun actualizarBecerro(becerro: Becerro): Int{
+        val db = writableDatabase
+        val valoresUpdate = contentValuesOf().apply {
+            put(COL_NOMBRE, becerro.nombre)
+            put(COL_EDAD, becerro.edad)
+            put(COL_PESO_NACER, becerro.pesoNacer)
+            put(COL_PES0_DESTETE,becerro.pesoDestete)
+            put(COL_PESO_12, becerro.pesoDoce)
+            put(COL_POTRERO, becerro.potrero)
+            put(COL_FECHA_NAC, becerro.fechaNacimiento)
+        }
+        val filasAfectadas = db.update(NOMBRE_TABLA, valoresUpdate, "$COL_SINIIGA = ?", arrayOf(becerro.siiniga.toString()))
+        db.close()
+        return filasAfectadas
     }
 }

@@ -16,7 +16,10 @@ class MenuBecerroActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         val correo = intent.getStringExtra("correo")
+
+        val sexoSeleccionado = intent.getStringExtra("sexoSeleccionado")
 
         binding.lnRegistrarBecerro.setOnClickListener {
             val intent = Intent(this, RegistrarBecerroActivity::class.java).apply {
@@ -28,6 +31,7 @@ class MenuBecerroActivity : AppCompatActivity() {
         binding.lnVerBecerro.setOnClickListener {
             val intent = Intent(this, VisualizarBecerrosActivity::class.java).apply {
                 putExtra("correo", correo)
+                putExtra("sexoSeleccionado", sexoSeleccionado)
             }
             startActivity(intent)
         }

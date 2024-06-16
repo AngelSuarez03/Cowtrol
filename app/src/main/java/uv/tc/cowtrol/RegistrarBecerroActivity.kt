@@ -99,6 +99,10 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                 )
                 agregarBecerro(nuevoBecerro)
                 cargarBecerros.cargarMisBecerros()
+
+                val intent = Intent(this@RegistrarBecerroActivity, MenuBecerroActivity::class.java )
+                intent.putExtra("sexoSeleccionado", sexoSeleccionado)
+                startActivity(intent)
             }
         }
 
