@@ -2,6 +2,7 @@ package uv.tc.cowtrol.poko
 
 import android.media.session.PlaybackState.CustomAction
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,7 +22,9 @@ class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
         setContentView(view)
 
         val recyclerView =findViewById<RecyclerView>(R.id.rv_asesoria_veterinaria)
-        val adapter = AdaptadorVeterinario()
+        val adapter = AdaptadorVeterinario(){
+            Toast.makeText(this@SolicitarAsesoriaVeterinariaActivity,"telefono $it",Toast.LENGTH_LONG).show()
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(this@SolicitarAsesoriaVeterinariaActivity)
         recyclerView.adapter=adapter
