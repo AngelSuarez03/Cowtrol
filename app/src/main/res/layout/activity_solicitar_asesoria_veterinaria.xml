@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/primaryDark"
     android:orientation="vertical"
-    tools:context=".poko.SolicitarAsesoriaVeterinariaActivity">
+    tools:context=".SolicitarAsesoriaVeterinariaActivity">
 
     <TextView
         android:layout_width="match_parent"

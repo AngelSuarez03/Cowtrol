@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import uv.tc.cowtrol.databinding.ActivityPrincipalBinding
-import uv.tc.cowtrol.poko.AnadirPotreroActivity
 
 class PrincipalActivity : AppCompatActivity() {
     lateinit var binding: ActivityPrincipalBinding

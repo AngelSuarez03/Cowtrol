@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/potrero_background"
-    tools:context=".poko.AnadirPotreroActivity">
+    tools:context=".AnadirPotreroActivity">
 
     <TextView
         android:layout_width="match_parent"

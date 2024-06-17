@@ -1,17 +1,12 @@
-package uv.tc.cowtrol.poko
+package uv.tc.cowtrol
 
-import android.media.session.PlaybackState.CustomAction
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import uv.tc.cowtrol.R
-import uv.tc.cowtrol.databinding.ActivityAnadirPotreroBinding
 import uv.tc.cowtrol.databinding.ActivitySolicitarAsesoriaVeterinariaBinding
+import uv.tc.cowtrol.poko.AdaptadorVeterinario
 
 class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
     private lateinit var binding: ActivitySolicitarAsesoriaVeterinariaBinding

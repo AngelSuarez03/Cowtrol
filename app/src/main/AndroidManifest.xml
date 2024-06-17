@@ -16,13 +16,13 @@
             android:name=".VisualizarBecerrosActivity"
             android:exported="false" />
         <activity
-            android:name=".poko.SolicitarAsesoriaVeterinariaActivity"
+            android:name=".SolicitarAsesoriaVeterinariaActivity"
             android:exported="false" />
         <activity
             android:name=".MenuBecerroActivity"
             android:exported="false" />
         <activity
-            android:name=".poko.AnadirPotreroActivity"
+            android:name=".AnadirPotreroActivity"
             android:exported="false" />
         <activity
             android:name=".PruebaActivity"

@@ -3,13 +3,7 @@ package uv.tc.cowtrol
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import uv.tc.cowtrol.databinding.ActivityCrearCuentaBinding
 import uv.tc.cowtrol.databinding.ActivityMainBinding
-import uv.tc.cowtrol.poko.AnadirPotreroActivity
-import uv.tc.cowtrol.poko.SolicitarAsesoriaVeterinariaActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -20,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnPrueba.setOnClickListener {
-            val intent = Intent(this,   RegistroRanchoActivity::class.java)
+            val intent = Intent(this,   SolicitarAsesoriaVeterinariaActivity::class.java)
             startActivity(intent)
         }
     }

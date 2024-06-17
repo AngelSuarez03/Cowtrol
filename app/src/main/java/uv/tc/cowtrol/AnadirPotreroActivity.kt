@@ -1,14 +1,11 @@
-package uv.tc.cowtrol.poko
+package uv.tc.cowtrol
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import uv.tc.cowtrol.R
 import uv.tc.cowtrol.databinding.ActivityAnadirPotreroBinding
 import uv.tc.cowtrol.modelo.PotreroBD
+import uv.tc.cowtrol.poko.Potrero
 
 class AnadirPotreroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAnadirPotreroBinding
