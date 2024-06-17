@@ -123,4 +123,20 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         db.close()
         return potreros
     }
+
+    @SuppressLint("Range")
+    fun retornarCapacidadPotrero(potrero: Int, rancho: String): Int {
+        var potreros = 0
+        val db = readableDatabase
+        val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, "$COL_RANCHO = ? AND $COL_NUMERO_POTRERO = ?",
+            arrayOf(rancho, potrero.toString()),null,null,null)
+        if(resultadoConsulta != null){
+            while (resultadoConsulta.moveToNext()) {
+                potreros = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(COL_CAPACIDAD))
+                resultadoConsulta.close()
+            }
+        }
+        db.close()
+        return potreros
+    }
 }

@@ -143,6 +143,21 @@ class BecerroBD(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         return misBecerros
     }
 
+    @SuppressLint("Range")
+    fun cantidadBecerrosPorPotrero(potrero: Int, rancho: String): Int {
+        var misBecerros = 0
+        val db = readableDatabase
+        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, null, "$COL_POTRERO = ? AND $COL_RANCHO = ?", arrayOf(potrero.toString(),rancho), null, null, null)
+        if (resultadoConsulta != null) {
+            while (resultadoConsulta.moveToNext()) {
+                misBecerros += 1
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return misBecerros
+    }
+
     fun actualizarBecerro(becerro: Becerro): Int {
         val db = writableDatabase
         val valoresUpdate = ContentValues().apply {

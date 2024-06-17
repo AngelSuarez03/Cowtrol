@@ -40,6 +40,7 @@
         android:background="@drawable/et_campo_datos"/>
 
     <TextView
+        android:id="@+id/tv_capacidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
