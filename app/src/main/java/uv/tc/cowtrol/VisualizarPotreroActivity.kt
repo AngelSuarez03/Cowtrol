@@ -52,6 +52,7 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
         rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         configurarRecyclerPotreros()
         llenarSpinner()
+        capacidadPotrero()
         binding.btnRegresar.setOnClickListener {
             finish()
         }
@@ -66,6 +67,7 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
                 numeroPotrero = selectedPotrero.toString().toInt()
                 val becerros = becerroBD.seleccionarBecerrosPorPotrero(numeroPotrero,rancho.toString())
                 binding.rvPotreros.adapter = VisualizarPotreroAdapter(becerros, this@VisualizarPotreroActivity)
+                capacidadPotrero()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -140,14 +142,14 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
         Toast.makeText(this@VisualizarPotreroActivity, msj, Toast.LENGTH_LONG).show()
     }
 
-    private fun mostrarDatePicker(editText: EditText) {
+    fun mostrarDatePicker(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
-            this, uv.tc.cowtrol.R.style.CustomDatePickerDialog,
+            this,
             { _, selectedYear, selectedMonth, selectedDayOfMonth ->
                 val fechaSeleccionada = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
                 editText.setText(fechaSeleccionada)
@@ -156,10 +158,13 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
             month,
             dayOfMonth
         )
-
-        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
-
         datePickerDialog.show()
     }
 
+    private fun capacidadPotrero() {
+        Log.i("Test", numeroPotrero.toString() + " | " + rancho.toString())
+        val capacidad = becerroBD.cantidadBecerrosPorPotrero(numeroPotrero, rancho.toString())
+        val capacidadTotal = potreroBD.retornarCapacidadPotrero(numeroPotrero, rancho.toString())
+        binding.tvCapacidad.setText("Capacidad $capacidad/$capacidadTotal")
+    }
 }
