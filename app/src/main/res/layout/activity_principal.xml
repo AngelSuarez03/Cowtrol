@@ -213,8 +213,8 @@
             android:shadowDx="2"
             android:shadowDy="1"
             android:shadowRadius="1"
-            android:background="@drawable/btn_background"/>
-
+            android:background="@drawable/btn_background"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 </LinearLayout>
