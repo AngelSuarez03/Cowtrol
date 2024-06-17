@@ -26,6 +26,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
     lateinit var controlBD: ControlReproduccionBD
     var correo: String? = ""
     var rancho: String? = ""
+    var cargada: Int = 0
     var potreroSeleccionado: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +40,12 @@ class ControlReproduccionActivity : AppCompatActivity() {
         potreroBD = PotreroBD(this@ControlReproduccionActivity)
         becerrosBD = BecerroBD(this@ControlReproduccionActivity)
         llenarSpinners()
+        binding.switchCargada.setOnCheckedChangeListener{ button, isChecked ->
+            if(isChecked)
+                cargada = 1
+            else
+                cargada = 0
+        }
         binding.spPotreros.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -65,11 +72,6 @@ class ControlReproduccionActivity : AppCompatActivity() {
             val diaParto = binding.etDiaParto.text.toString()
             val tipo = binding.spTipo.selectedItem.toString()
             val descripcion = binding.etDescripcion.text.toString()
-            var cargada = 0
-            if(binding.switchCargada.isActivated)
-                cargada = 1
-            else
-                cargada = 0
             if (validarDatos()) {
                 val controlReproduccion = ControlReproduccion(
                     potrero,

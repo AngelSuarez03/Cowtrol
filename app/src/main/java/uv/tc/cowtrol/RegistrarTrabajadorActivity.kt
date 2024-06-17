@@ -18,6 +18,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
     lateinit var potreroBD: PotreroBD
     lateinit var usuarioBD: UsuariosBD
     var correo: String? = ""
+    var rancho: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarTrabajadorBinding.inflate(layoutInflater)
@@ -26,7 +27,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
         potreroBD = PotreroBD(this@RegistrarTrabajadorActivity)
         usuarioBD = UsuariosBD(this@RegistrarTrabajadorActivity)
         correo = intent.getStringExtra("correo")
-        val rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
+        rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         opcionesSpinnerPuesto()
         cargarPotrerosRegistrados()
         binding.btnRegistrarTrabajador.setOnClickListener {
@@ -70,7 +71,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
     }
 
     private fun cargarPotrerosRegistrados() {
-        val potreros = potreroBD.retornarPotrerosRegistrados()
+        val potreros = potreroBD.retornarPotrerosRancho(rancho.toString())
             val spinner_adapter = ArrayAdapter(this@RegistrarTrabajadorActivity, R.layout.simple_spinner_item, potreros(potreros))
             spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spPotreroAsignado.adapter = spinner_adapter
