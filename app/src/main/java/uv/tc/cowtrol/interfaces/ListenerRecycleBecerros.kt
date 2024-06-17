@@ -1,4 +1,4 @@
-package interfaces
+package uv.tc.cowtrol.interfaces
 
 import uv.tc.cowtrol.poko.Becerro
 

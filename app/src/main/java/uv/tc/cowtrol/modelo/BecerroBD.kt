@@ -117,6 +117,32 @@ class BecerroBD(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         return misBecerros
     }
 
+    @SuppressLint("Range")
+    fun seleccionarBecerrosPorPotrero(potrero: Int): List<Becerro> {
+        val misBecerros = mutableListOf<Becerro>()
+        val db = readableDatabase
+        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, null, "$COL_POTRERO = ?", arrayOf(potrero.toString()), null, null, null)
+        if (resultadoConsulta != null) {
+            while (resultadoConsulta.moveToNext()) {
+                val sexo = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_SEXO))
+                val nombre = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_NOMBRE))
+                val siniiga = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(COL_SINIIGA))
+                val edad = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(COL_EDAD))
+                val peso_nacer = resultadoConsulta.getFloat(resultadoConsulta.getColumnIndex(COL_PESO_NACER))
+                val peso_destete = resultadoConsulta.getFloat(resultadoConsulta.getColumnIndex(COL_PESO_DESTETE))
+                val peso_12 = resultadoConsulta.getFloat(resultadoConsulta.getColumnIndex(COL_PESO_12))
+                val potrero = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_POTRERO))
+                val fecha_nac = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_FECHA_NAC))
+                val ranchoObtenido = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
+                val becerro = Becerro(sexo, nombre, siniiga, edad, peso_nacer, peso_destete, peso_12, potrero, fecha_nac, ranchoObtenido)
+                misBecerros.add(becerro)
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return misBecerros
+    }
+
     fun actualizarBecerro(becerro: Becerro): Int {
         val db = writableDatabase
         val valoresUpdate = ContentValues().apply {

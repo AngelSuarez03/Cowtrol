@@ -1,4 +1,4 @@
-package adaptadores
+package uv.tc.cowtrol.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import interfaces.ListenerRecycleBecerros
+import uv.tc.cowtrol.interfaces.ListenerRecycleBecerros
 import uv.tc.cowtrol.R
 import uv.tc.cowtrol.poko.Becerro
 

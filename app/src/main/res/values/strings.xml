@@ -39,6 +39,17 @@
     <!-- Control de Reproducción Main Activity -->
     <string name="btn_añadir_control">Añadir</string>
 
+    <!-- Dialog XML -->
+    <string name="tv_titulo_dialog">Asignar Evento</string>
+    <string name="tv_fecha_dialogo">Fecha</string>
+    <string name="tv_tipo_dialogo">Tipo</string>
+    <string name="tv_descripcion_dialogo">Descripcion</string>
+
+    <!-- Menu Potrero Activity -->
+    <string name="tv_titulo_menu_potrero">Potreros</string>
+    <string name="tv_añadir_potrero">Añadir Potrero</string>
+    <string name="tv_ver_potrero">Ver Potreros</string>
+    
     <!--Registro rancho-->
     <string name="registra_tu_rancho">Registra tu rancho</string>
     <string name="nombre">Nombre</string>

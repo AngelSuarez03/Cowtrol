@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Cowtrol"
         tools:targetApi="31">
         <activity
+            android:name=".MenuPotreroActivity"
+            android:exported="false" />
+        <activity
             android:name=".ControlReproduccionMainActivity"
             android:exported="false" />
         <activity

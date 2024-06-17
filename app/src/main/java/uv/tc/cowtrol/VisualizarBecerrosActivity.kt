@@ -1,6 +1,6 @@
 package uv.tc.cowtrol
 
-import adaptadores.BecerroAdapter
+import uv.tc.cowtrol.adaptadores.BecerroAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import interfaces.ListenerRecycleBecerros
+import uv.tc.cowtrol.interfaces.ListenerRecycleBecerros
 import uv.tc.cowtrol.databinding.ActivityVisualizarBecerrosBinding
 import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
@@ -36,8 +36,9 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
         configurarRecyclerBecerros()
         cargarMisBecerros()
 
-        binding.btnRegresarMenuBecerro.setOnClickListener{
-            val intent = Intent(this@VisualizarBecerrosActivity, MenuBecerroActivity::class.java )
+        binding.btnRegresarMenuBecerro.setOnClickListener {
+            val intent = Intent(this@VisualizarBecerrosActivity, MenuBecerroActivity::class.java)
+            intent.putExtra("correo", correo)
             startActivity(intent)
             finish()
         }

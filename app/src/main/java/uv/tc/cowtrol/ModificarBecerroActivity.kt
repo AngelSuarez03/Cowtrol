@@ -1,11 +1,13 @@
 package uv.tc.cowtrol
 
 import android.R.drawable
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ import uv.tc.cowtrol.databinding.ActivityModificarBecerroBinding
 import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.poko.Becerro
+import java.util.Calendar
 
 class ModificarBecerroActivity : AppCompatActivity() {
 
@@ -80,6 +83,11 @@ class ModificarBecerroActivity : AppCompatActivity() {
 
         cambiarFondoSexo(sexo)
 
+        val fechaNacimientoBecerro = binding.etFechaNacimientoBecerro
+        fechaNacimientoBecerro.setOnClickListener {
+            mostrarDatePicker(fechaNacimientoBecerro)
+        }
+
         binding.btnActualizarAnimal.setOnClickListener {
             val nombre = binding.etNombreBecerro.text.toString()
             val edad = binding.etEdadBecerro.text.toString().toInt()
@@ -109,8 +117,11 @@ class ModificarBecerroActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al actualizar el becerro", Toast.LENGTH_SHORT).show()
             }
         }
-    }
 
+        binding.btnRegresarMenuBecerro.setOnClickListener {
+            finish()
+        }
+    }
     private fun cambiarFondoSexo(sexo: String?) {
         val textViewMacho = binding.tvMacho
         val textViewHembra = binding.tvHembra
@@ -132,5 +143,26 @@ class ModificarBecerroActivity : AppCompatActivity() {
         val potreroBD = PotreroBD(this@ModificarBecerroActivity)
         val potreros = potreroBD.retornarPotrerosRegistrados()
         return potreros.map { it.numeroPotrero.toString() }
+    }
+
+
+    private fun mostrarDatePicker(editText: EditText) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this, R.style.CustomDatePickerDialog,
+            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+                val fechaSeleccionada = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
+                editText.setText(fechaSeleccionada)
+            },
+            year,
+            month,
+            dayOfMonth
+        )
+        datePickerDialog.show()
+        binding.etFechaNacimientoBecerro.error = null
     }
 }

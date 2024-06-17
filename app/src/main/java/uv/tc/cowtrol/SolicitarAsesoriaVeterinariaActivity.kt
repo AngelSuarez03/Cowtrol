@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uv.tc.cowtrol.databinding.ActivitySolicitarAsesoriaVeterinariaBinding
-import adaptadores.VeterinarioAdapter
+import uv.tc.cowtrol.adaptadores.VeterinarioAdapter
 
 class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
     private lateinit var binding: ActivitySolicitarAsesoriaVeterinariaBinding
