@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnPrueba.setOnClickListener {
-            val intent = Intent(this,   LoginActivity::class.java)
+            val intent = Intent(this,   RegistroRanchoActivity::class.java)
             startActivity(intent)
         }
     }
