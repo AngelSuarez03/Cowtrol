@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uv.tc.cowtrol.databinding.ActivitySolicitarAsesoriaVeterinariaBinding
-import adaptadores.AdaptadorVeterinario
+import adaptadores.VeterinarioAdapter
 
 class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
     private lateinit var binding: ActivitySolicitarAsesoriaVeterinariaBinding
@@ -17,7 +17,7 @@ class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
         setContentView(view)
 
         val recyclerView =findViewById<RecyclerView>(R.id.rv_asesoria_veterinaria)
-        val adapter = AdaptadorVeterinario(){
+        val adapter = VeterinarioAdapter(){
             Toast.makeText(this@SolicitarAsesoriaVeterinariaActivity,"telefono $it",Toast.LENGTH_LONG).show()
         }
 
