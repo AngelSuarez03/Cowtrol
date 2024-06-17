@@ -34,11 +34,11 @@ class ControlReproduccionActivity : AppCompatActivity() {
         binding.btnGuardarControl.setOnClickListener {
             val potrero = binding.spPotreros.selectedItem.toString().toInt()
             val siniiga = binding.spAnimales.selectedItem.toString().toInt()
-            val fechaRevision = binding.etFechaRevision.toString()
-            val temporada = binding.etTemporadaReproduccion.toString()
-            val diaParto = binding.etDiaParto.toString()
+            val fechaRevision = binding.etFechaRevision.text.toString()
+            val temporada = binding.etTemporadaReproduccion.text.toString()
+            val diaParto = binding.etDiaParto.text.toString()
             val tipo = binding.spTipo.selectedItem.toString()
-            val descripcion = binding.etDescripcion.toString()
+            val descripcion = binding.etDescripcion.text.toString()
             var cargada = 0
             if(binding.switchCargada.isActivated)
                 cargada = 1
@@ -93,7 +93,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
     }
 
     private fun cargarBecerros(): List<Int> {
-        val becerro = becerrosBD.seleccionarBecerrosPorRancho(correo.toString())
+        val becerro = becerrosBD.seleccionarBecerrosPorRancho("rancho1")
         return becerro.map { it.siiniga }
     }
 

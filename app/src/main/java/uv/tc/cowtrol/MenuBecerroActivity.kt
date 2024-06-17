@@ -36,13 +36,6 @@ class MenuBecerroActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.lnControlReproduccion.setOnClickListener {
-            val intent = Intent(this@MenuBecerroActivity, ControlReproduccionActivity::class.java).apply {
-                putExtra("correo", correo)
-            }
-            startActivity(intent)
-        }
-
         binding.btnRegresar.setOnClickListener{
             val intent = Intent(this@MenuBecerroActivity, PrincipalActivity::class.java)
             startActivity(intent)
