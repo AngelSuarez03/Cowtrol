@@ -30,7 +30,7 @@
     <ListView
         android:id="@+id/lv_controles_agregados"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:layout_margin="30dp"/>
     <Button
         android:id="@+id/btn_agregar_control"
@@ -41,12 +41,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/btn_regresar"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/arrow_left_bold"
         android:layout_marginTop="20dp"

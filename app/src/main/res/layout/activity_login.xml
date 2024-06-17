@@ -15,7 +15,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="-20dp"
         android:src="@drawable/logo"/>
-    
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="21dp"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/tv_ingresar_usuario"
@@ -118,7 +119,7 @@
                 android:shadowDx="2"
                 android:shadowDy="1"
                 android:shadowRadius="1"/>
-            
+
             <TextView
                 android:id="@+id/tv_crear_cuenta"
                 android:layout_width="match_parent"
@@ -128,7 +129,6 @@
                 android:text="@string/et_crear_cuenta"
                 android:textColor="@color/hint"/>
         </LinearLayout>
-
 
 
 </LinearLayout>

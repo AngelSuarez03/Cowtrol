@@ -98,14 +98,14 @@
             android:shadowDx="2"
             android:shadowDy="1"
             android:shadowRadius="1"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center" />
 
         <EditText
             android:id="@+id/et_nombre_becerro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_edit_text"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
@@ -120,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:gravity="center_horizontal">
 
@@ -164,7 +164,7 @@
                 android:id="@+id/et_sinniga"
                 android:layout_width="134dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/border_edit_text"
                 android:textSize="23sp"
                 android:padding="5dp"
@@ -177,7 +177,7 @@
                 android:id="@+id/et_edad_becerro"
                 android:layout_width="134dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/border_edit_text"
                 android:layout_marginStart="10dp"
                 android:textSize="23sp"
@@ -199,7 +199,7 @@
             android:shadowDx="2"
             android:shadowDy="1"
             android:shadowRadius="1"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center" />
 
         <LinearLayout
@@ -207,11 +207,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="5dp">
 
             <EditText
                 android:id="@+id/et_peso_nacer"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_edit_text"
                 android:hint="@string/al_nacer"
@@ -225,7 +225,7 @@
 
             <EditText
                 android:id="@+id/et_peso_destete"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:background="@drawable/border_edit_text"
@@ -240,7 +240,7 @@
 
             <EditText
                 android:id="@+id/et_peso_doce"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:background="@drawable/border_edit_text"
@@ -258,7 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal">
 
             <TextView
@@ -295,14 +295,14 @@
             android:shadowDx="2"
             android:shadowDy="1"
             android:shadowRadius="1"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center" />
 
         <EditText
             android:id="@+id/et_fecha_nacimiento_becerro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_edit_text"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
@@ -322,7 +322,7 @@
                 android:id="@+id/btn_regresar_menu_becerro"
                 android:layout_width="60dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/boton_regresar_modificar_rancho"
