@@ -1,4 +1,4 @@
-package uv.tc.cowtrol.poko
+package adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import uv.tc.cowtrol.R
 
-class AdaptadorVeterinario(val onClickListener:(String)->Unit ):RecyclerView.Adapter<AdaptadorVeterinario.ViewHolder>() {
+class VeterinarioAdapter(val onClickListener:(String)->Unit ):RecyclerView.Adapter<VeterinarioAdapter.ViewHolder>() {
 
     val nombre= arrayOf("Alberto Martínez Álvarez","Raúl Cortinez Vázquez","Beto Albarado")
     val telefono = arrayOf(2284413843,2831462214,4789641236)

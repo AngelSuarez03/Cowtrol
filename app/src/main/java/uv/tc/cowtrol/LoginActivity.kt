@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import uv.tc.cowtrol.databinding.ActivityLoginBinding
 import uv.tc.cowtrol.modelo.BecerroBD
+import uv.tc.cowtrol.modelo.ControlReproduccionBD
 import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
 
@@ -14,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var potreroBd: PotreroBD
     lateinit var becerroBD: BecerroBD
     lateinit var modelo: UsuariosBD
+    lateinit var controlBD: ControlReproduccionBD
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -27,6 +29,10 @@ class LoginActivity : AppCompatActivity() {
         becerroBD = BecerroBD(this@LoginActivity)
         //becerroBD.crearTabla()
 
+        controlBD = ControlReproduccionBD(this@LoginActivity)
+        //controlBD.crearTabla()
+        //controlBD.dropTabla()
+
         var mensaje = ""
         binding.btnIngresarLogin.setOnClickListener{
             val correo = binding.etCorreoLogin.text.toString()
@@ -38,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
                     putExtra("correo", correo)
                 }
                 startActivity(intent)
-                finish()
             }else{
                 mensaje = "Correo o cantraseña incorrecos"
                 Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()

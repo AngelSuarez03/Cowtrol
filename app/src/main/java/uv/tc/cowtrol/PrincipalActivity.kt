@@ -30,5 +30,14 @@ class PrincipalActivity : AppCompatActivity() {
             val intent = Intent(this@PrincipalActivity, AnadirPotreroActivity::class.java)
             startActivity(intent)
         }
+
+        binding.lnEvento.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, SolicitarAsesoriaVeterinariaActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnCerrarSesion.setOnClickListener {
+            finish()
+        }
     }
 }
