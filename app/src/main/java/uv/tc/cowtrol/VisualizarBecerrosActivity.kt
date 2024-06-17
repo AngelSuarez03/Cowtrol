@@ -35,6 +35,12 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
 
         configurarRecyclerBecerros()
         cargarMisBecerros()
+
+        binding.btnRegresarMenuBecerro.setOnClickListener{
+            val intent = Intent(this@VisualizarBecerrosActivity, MenuBecerroActivity::class.java )
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onResume() {
