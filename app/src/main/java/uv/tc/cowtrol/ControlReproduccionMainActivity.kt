@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import uv.tc.cowtrol.databinding.ActivityControlReproduccionMainBinding
 import uv.tc.cowtrol.modelo.ControlReproduccionBD
+import uv.tc.cowtrol.poko.ControlReproduccion
 
 class ControlReproduccionMainActivity : AppCompatActivity() {
     lateinit var binding: ActivityControlReproduccionMainBinding
@@ -26,9 +27,27 @@ class ControlReproduccionMainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        llenarListView()
+    }
+
     private fun llenarListView (){
         val control = controlBD.obtenerControles()
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, control)
+        val controlesReales = mutableListOf<String>()
+        for(controles in control){
+            val reproduccion = "Potrero: ${controles.potrero}\n" +
+                    "Siniiga: ${controles.siniigaAnimal}\n" +
+                    "Fecha de revision: ${controles.fechaRevision}\n" +
+                    "Temporada de reproduccion: ${controles.temporada}\n" +
+                    "Dia de Parto: ${controles.diaParto}\n" +
+                    "Tipo: ${controles.tipo}\n" +
+                    "Descripcion: ${controles.descripcion}\n" +
+                    "Cargada: ${controles.cargada}\n" +
+                    "----------------------------------"
+            controlesReales.add(reproduccion)
+        }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, controlesReales)
         binding.lvControlesAgregados.adapter = adapter
     }
 }

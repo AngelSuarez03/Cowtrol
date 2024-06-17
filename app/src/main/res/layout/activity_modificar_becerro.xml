@@ -117,7 +117,8 @@
             android:textSize="23dp"
             android:padding="5dp"
             android:textColor="@color/black"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:maxLines="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -223,7 +224,8 @@
                 android:textAlignment="center"
                 android:textSize="23sp"
                 android:textColor="@color/black"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:maxLines="1"/>
 
             <EditText
                 android:id="@+id/et_peso_destete"
@@ -236,7 +238,8 @@
                 android:hint="@string/al_destete"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:maxLines="1"/>
 
             <EditText
                 android:id="@+id/et_peso_doce"
@@ -249,7 +252,8 @@
                 android:textAlignment="center"
                 android:padding="5dp"
                 android:textColor="@color/black"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <LinearLayout

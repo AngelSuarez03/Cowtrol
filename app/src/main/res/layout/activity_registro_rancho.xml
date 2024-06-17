@@ -56,6 +56,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="30dp"
+                    android:maxLines="1"
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/black"
                     android:background="@drawable/edit_text_background" />
@@ -80,6 +81,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="20dp"
+                    android:maxLines="1"
                     android:textColor="@color/black"
                     android:background="@drawable/edit_text_background"/>
 
@@ -106,6 +108,7 @@
                     android:textColor="@color/black"
                     android:inputType="phone"
                     android:maxLength="10"
+                    android:maxLines="1"
                     android:background="@drawable/edit_text_background"/>
 
                 <TextView
@@ -129,6 +132,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/black"
+                    android:maxLines="1"
                     android:background="@drawable/edit_text_background"/>
 
         </LinearLayout>

@@ -15,32 +15,32 @@ class PrincipalActivity : AppCompatActivity() {
 
         val correo = intent.getStringExtra("correo")
 
-        binding.opcionBecerro.setOnClickListener {
-            val intent = Intent(this, MenuBecerroActivity::class.java).apply {
-                putExtra("correo", correo)
-            }
+        binding.pruebaPotrero.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, RegistroRanchoActivity::class.java)
+            startActivity(intent)
+        }
+        binding.llPotrero.setOnClickListener{
+            val intent= Intent(this@PrincipalActivity, AnadirPotreroActivity::class.java)
             startActivity(intent)
         }
         binding.llTrabajador.setOnClickListener {
             val intent = Intent(this@PrincipalActivity, RegistrarTrabajadorActivity::class.java)
             startActivity(intent)
         }
-
-        binding.pruebaPotrero.setOnClickListener {
-            val intent = Intent(this@PrincipalActivity, AnadirPotreroActivity::class.java)
+        binding.opcionBecerro.setOnClickListener {
+            val intent = Intent(this, MenuBecerroActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
-
-        binding.lnAsesoriaVeterinaria.setOnClickListener {
-            val intent = Intent(this@PrincipalActivity, SolicitarAsesoriaVeterinariaActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.controlReproduccion.setOnClickListener {
             val intent = Intent(this@PrincipalActivity, ControlReproduccionMainActivity::class.java)
             startActivity(intent)
         }
-
+        binding.lnAsesoriaVeterinaria.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, SolicitarAsesoriaVeterinariaActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnCerrarSesion.setOnClickListener {
             finish()
         }
