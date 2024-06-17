@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import uv.tc.cowtrol.databinding.ActivityRegistrarTrabajadorBinding
 import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
+import uv.tc.cowtrol.poko.Potrero
 import uv.tc.cowtrol.poko.Usuario
 import java.security.SecureRandom
 
@@ -37,7 +38,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
                 sexo = "Hombre"
             else if (binding.rbMujer.isActivated)
                 sexo = "Mujer"
-            val usuario = Usuario(correo,password,"Trabajador",nombre, puesto, sexo,null, potrero, edad)
+            val usuario = Usuario(correo,password,"Trabajador",nombre, puesto, sexo,"rancho1", potrero, edad)
             registrarTrabajador(usuario)
             dialogoPassword(password)
         }
@@ -52,16 +53,13 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
 
     private fun cargarPotrerosRegistrados() {
         val potreros = potreroBD.retornarPotrerosRegistrados()
-        val potrerosVacio = arrayOf("Sin potreros registrados")
-        if(potreros != null){
-            val spinner_adapter = ArrayAdapter(this@RegistrarTrabajadorActivity, R.layout.simple_spinner_item, potreros)
+            val spinner_adapter = ArrayAdapter(this@RegistrarTrabajadorActivity, R.layout.simple_spinner_item, potreros(potreros))
             spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spPotreroAsignado.adapter = spinner_adapter
-        } else {
-            val spinner_adapter = ArrayAdapter(this@RegistrarTrabajadorActivity, R.layout.simple_spinner_item, potrerosVacio)
-            spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spPotreroAsignado.adapter = spinner_adapter
-        }
+    }
+
+    private fun potreros(potrero: List<Potrero>): List<Int> {
+        return potrero.map { it.numeroPotrero }
     }
 
     private fun registrarTrabajador(trabajador: Usuario) {

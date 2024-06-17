@@ -36,6 +36,11 @@ class PrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.controlReproduccion.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, ControlReproduccionMainActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnCerrarSesion.setOnClickListener {
             finish()
         }

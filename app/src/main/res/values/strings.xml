@@ -35,6 +35,9 @@
     <string name="tv_Descripcion">Descripción</string>
     <string name="switch_cargada">Cargada</string>
 
+    <!-- Control de Reproducción Main Activity -->
+    <string name="btn_añadir_control">Añadir</string>
+
     <!--Registro rancho-->
     <string name="registra_tu_rancho">Registra tu rancho</string>
     <string name="nombre">Nombre</string>
