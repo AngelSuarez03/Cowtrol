@@ -113,9 +113,6 @@ class ControlReproduccionActivity : AppCompatActivity() {
             month,
             dayOfMonth
         )
-
-        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
-
         datePickerDialog.show()
         binding.etFechaRevision.error = null
     }
