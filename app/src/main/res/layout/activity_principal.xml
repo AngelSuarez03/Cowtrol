@@ -20,7 +20,6 @@
             android:layout_height="90dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/side_button_principal"
-            
             android:orientation="vertical">
             <ImageView
                 android:layout_width="40dp"
@@ -35,6 +34,33 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="@string/tv_rancho"
+                android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_potrero"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/side_button_principal"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/silo"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="@string/tv_potrero"
                 android:shadowColor="@color/black"
                 android:shadowDx="2"
                 android:shadowDy="1"

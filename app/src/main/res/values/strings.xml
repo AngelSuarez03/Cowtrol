@@ -15,6 +15,7 @@
     <string name="tv_control_reproduccion">Control de \nreproducción </string>
     <string name="tv_asesoria">Asesoria \nVeterinaria</string>
     <string name="btn_cerrar_sesion">Cerrar Sesion</string>
+    <string name="tv_potrero">Potrero</string>
 
     <!-- Registrar Trabajador Activity -->
     <string name="tv_registrar_trabajador_titulo">Registrar Trabajador</string>
