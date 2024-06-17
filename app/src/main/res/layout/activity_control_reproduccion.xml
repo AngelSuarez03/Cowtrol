@@ -199,7 +199,8 @@
             android:layout_height="50dp"
             android:background="@drawable/et_campo_datos"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp" />
+            android:layout_marginEnd="30dp"
+            android:maxLines="5"/>
 
         <Switch
             android:id="@+id/switch_cargada"
