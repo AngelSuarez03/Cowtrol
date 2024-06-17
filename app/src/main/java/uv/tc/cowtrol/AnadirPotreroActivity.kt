@@ -26,6 +26,9 @@ class AnadirPotreroActivity : AppCompatActivity() {
                 agregarPotrero(potreroNuevo)
             }
         }
+        binding.btRegresarAnadirPotrero.setOnClickListener {
+            finish()
+        }
     }
 
     private fun agregarPotrero(potrero: Potrero){
