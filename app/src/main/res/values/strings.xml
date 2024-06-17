@@ -25,6 +25,16 @@
     <string name="rb_mujer">Mujer</string>
     <string name="btn_guardar">Guardar</string>
 
+    <!-- Control de Reproducción Activity -->
+    <string name="tv_titulo_reproduccion">Control de Reproducción</string>
+    <string name="tv_vaca">Vaca</string>
+    <string name="tv_fecha_revision">Fecha de Revisión</string>
+    <string name="tv_temporada">Temporada de Reproducción</string>
+    <string name="tv_dia_parto">Dia de Parto</string>
+    <string name="tv_tipo">Tipo</string>
+    <string name="tv_Descripcion">Descripción</string>
+    <string name="switch_cargada">Cargada</string>
+
     <!--Registro rancho-->
     <string name="registra_tu_rancho">Registra tu rancho</string>
     <string name="nombre">Nombre</string>

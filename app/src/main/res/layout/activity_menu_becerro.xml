@@ -11,7 +11,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/logo"/>
 
@@ -37,7 +37,7 @@
     <LinearLayout
         android:id="@+id/ln_registrar_becerro"
         android:layout_width="400dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
@@ -46,7 +46,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/cow"/>
 
@@ -67,7 +67,7 @@
     <LinearLayout
         android:id="@+id/ln_ver_becerro"
         android:layout_width="400dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
@@ -76,7 +76,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/list_box_outline"/>
 
@@ -84,6 +84,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ver_becerros"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="28dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_control_reproduccion"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bordes_linear_layout">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/reproduction"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_titulo_reproduccion"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:textStyle="bold|normal"
