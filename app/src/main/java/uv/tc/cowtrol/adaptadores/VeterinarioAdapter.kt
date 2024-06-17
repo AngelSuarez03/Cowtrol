@@ -1,4 +1,4 @@
-package adaptadores
+package uv.tc.cowtrol.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View

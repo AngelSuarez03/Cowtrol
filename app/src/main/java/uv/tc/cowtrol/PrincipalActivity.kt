@@ -20,7 +20,7 @@ class PrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.llPotrero.setOnClickListener{
-            val intent= Intent(this@PrincipalActivity, AnadirPotreroActivity::class.java)
+            val intent= Intent(this@PrincipalActivity, MenuPotreroActivity::class.java)
             startActivity(intent)
         }
         binding.llTrabajador.setOnClickListener {

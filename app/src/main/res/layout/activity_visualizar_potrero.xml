@@ -28,28 +28,16 @@
         android:shadowRadius="1"
         android:padding="15dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <Spinner
+        android:id="@+id/sp_potrero"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:hint="@string/hint"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-
-        <AutoCompleteTextView
-            android:id="@+id/act_potrero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:background="@drawable/autocompletetextview_background"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:background="@drawable/et_campo_datos"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -72,28 +60,11 @@
         android:layout_height="360dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_asesoria_veterinaria"
+            android:id="@+id/rv_potreros"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"/>
     </ScrollView>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/accent"
-        android:text="@string/reproduccion"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:textColor="@color/black"
-        android:shadowColor="@color/white"
-        android:shadowDx="2"
-        android:shadowDy="1"
-        android:shadowRadius="1"/>
 
     <ImageView
         android:layout_width="39dp"
