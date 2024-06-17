@@ -7,6 +7,7 @@ data class Usuario(
     val nombre: String?,
     val puesto: String?,
     val sexo: String?,
+    val nombreRancho: String?,
     val potreroAsignado: String?,
     val edad: Int?
 )

@@ -96,8 +96,7 @@ class ModificarBecerroActivity : AppCompatActivity() {
 
             // Crear objeto Becerro con los datos actualizados
             val becerroActualizar = Becerro(
-                sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, correo ?: ""
-            )
+                sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, correo ?: "", null)
 
             // Actualizar el becerro en la base de datos
             val becerroBD = BecerroBD(this)
