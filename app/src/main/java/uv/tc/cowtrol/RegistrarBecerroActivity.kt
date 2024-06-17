@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uv.tc.cowtrol.databinding.ActivityRegistrarBecerroBinding
 import uv.tc.cowtrol.modelo.BecerroBD
+import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.Becerro
 import java.util.Calendar
@@ -55,12 +56,9 @@ class RegistrarBecerroActivity : AppCompatActivity() {
             seleccionSexo("Hembra")
         }
 
-        val items = listOf("1", "2", "3")
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
-
+        val nombresPotreros = cargarPotreros()
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nombresPotreros)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -84,6 +82,7 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         }
 
         binding.btnRegistrarAnimal.setOnClickListener {
+
             if(validarCamposBecerro()){
                 val nuevoBecerro = Becerro(
                     sexoSeleccionado.toString(),
@@ -217,4 +216,11 @@ class RegistrarBecerroActivity : AppCompatActivity() {
 
         return valido
     }
+
+    private fun cargarPotreros(): List<Int> {
+        val potreroBD = PotreroBD(this@RegistrarBecerroActivity)
+        val potreros = potreroBD.retornarPotrerosRegistrados()
+        return potreros.map { it.numeroPotrero }
+    }
+
 }

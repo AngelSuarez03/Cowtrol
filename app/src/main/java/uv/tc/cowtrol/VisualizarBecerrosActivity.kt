@@ -63,6 +63,13 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
         intent.putExtra("siiniga", becerro.siiniga)
         intent.putExtra("correo", becerro.correoUsuario)
         intent.putExtra("sexo", becerro.sexo)
+        intent.putExtra("edad", becerro.edad)
+        intent.putExtra("pesoNacer", becerro.pesoNacer)
+        intent.putExtra("pesoDestete", becerro.pesoDestete)
+        intent.putExtra("pesoDoce", becerro.pesoDoce)
+        intent.putExtra("fechaNa", becerro.fechaNacimiento)
+        intent.putExtra("nombre", becerro.nombre)
+        intent.putExtra("potrero", becerro.potrero)
         startActivity(intent)
     }
 }
