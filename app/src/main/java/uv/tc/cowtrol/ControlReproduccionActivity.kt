@@ -4,6 +4,8 @@ import android.R
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
@@ -11,26 +13,50 @@ import uv.tc.cowtrol.databinding.ActivityControlReproduccionBinding
 import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.ControlReproduccionBD
 import uv.tc.cowtrol.modelo.PotreroBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.ControlReproduccion
 import uv.tc.cowtrol.poko.Potrero
 import java.util.Calendar
 
 class ControlReproduccionActivity : AppCompatActivity() {
     lateinit var binding: ActivityControlReproduccionBinding
+    lateinit var usuarioBD: UsuariosBD
     lateinit var potreroBD: PotreroBD
     lateinit var becerrosBD: BecerroBD
     lateinit var controlBD: ControlReproduccionBD
     var correo: String? = ""
+    var rancho: String? = ""
+    var potreroSeleccionado: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityControlReproduccionBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         controlBD = ControlReproduccionBD(this@ControlReproduccionActivity)
+        usuarioBD = UsuariosBD(this@ControlReproduccionActivity)
         correo = intent.getStringExtra("correo")
+        rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         potreroBD = PotreroBD(this@ControlReproduccionActivity)
         becerrosBD = BecerroBD(this@ControlReproduccionActivity)
         llenarSpinners()
+        binding.spPotreros.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                potreroSeleccionado = parent!!.getItemAtPosition(position).toString().toInt()
+                val becerros = cargarBecerros(potreroSeleccionado)
+                val spinner_adapter_becerros = ArrayAdapter(this@ControlReproduccionActivity, R.layout.simple_spinner_item, becerros)
+                spinner_adapter_becerros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.spAnimales.adapter = spinner_adapter_becerros
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+        }
         binding.btnGuardarControl.setOnClickListener {
             val potrero = binding.spPotreros.selectedItem.toString().toInt()
             val siniiga = binding.spAnimales.selectedItem.toString().toInt()
@@ -53,7 +79,8 @@ class ControlReproduccionActivity : AppCompatActivity() {
                     diaParto,
                     tipo,
                     descripcion,
-                    cargada.toString().toBoolean()
+                    cargada.toString().toBoolean(),
+                    rancho.toString()
                 )
                 agregarControl(controlReproduccion)
             }
@@ -65,16 +92,12 @@ class ControlReproduccionActivity : AppCompatActivity() {
 
     private fun llenarSpinners(): Unit {
         val potreros = cargarPotreros()
-        val becerros = cargarBecerros()
         val tipo = arrayOf("Monta", "Inseminación","Transferencia de Embriones")
         val spinner_adapter_potreros = ArrayAdapter(this@ControlReproduccionActivity, R.layout.simple_spinner_item, potreros)
         spinner_adapter_potreros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spPotreros.adapter = spinner_adapter_potreros
-        val spinner_adapter_becerros = ArrayAdapter(this@ControlReproduccionActivity, R.layout.simple_spinner_item, becerros)
-        spinner_adapter_becerros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spAnimales.adapter = spinner_adapter_becerros
         val spinner_adapter_tipo = ArrayAdapter(this@ControlReproduccionActivity, R.layout.simple_spinner_item, tipo)
-        spinner_adapter_becerros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner_adapter_tipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spTipo.adapter = spinner_adapter_tipo
         binding.etFechaRevision.setOnClickListener{
             mostrarDatePicker(binding.etFechaRevision)
@@ -88,12 +111,12 @@ class ControlReproduccionActivity : AppCompatActivity() {
     }
 
     private fun cargarPotreros(): List<Int> {
-        val potrero = potreroBD.retornarPotrerosRegistrados()
+        val potrero = potreroBD.retornarPotrerosRancho(rancho.toString())
         return potrero.map { it.numeroPotrero }
     }
 
-    private fun cargarBecerros(): List<Int> {
-        val becerro = becerrosBD.seleccionarBecerrosPorRancho("rancho1")
+    private fun cargarBecerros(potrero: Int): List<Int> {
+        val becerro = becerrosBD.seleccionarBecerrosPorPotrero(potrero, rancho.toString())
         return becerro.map { it.siiniga }
     }
 

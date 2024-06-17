@@ -39,7 +39,9 @@ class PrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.controlReproduccion.setOnClickListener {
-            val intent = Intent(this@PrincipalActivity, ControlReproduccionMainActivity::class.java)
+            val intent = Intent(this@PrincipalActivity, ControlReproduccionMainActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
         binding.lnAsesoriaVeterinaria.setOnClickListener {

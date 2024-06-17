@@ -35,9 +35,6 @@ class RegistroRanchoActivity : AppCompatActivity() {
                 agregarRancho(nuevoRancho)
             }
         }
-        binding.btRegresarRegistroRancho.setOnClickListener {
-            finish()
-        }
     }
 
     private fun agregarRancho(rancho: Rancho){
