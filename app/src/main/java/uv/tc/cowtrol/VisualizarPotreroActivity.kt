@@ -3,6 +3,7 @@ package uv.tc.cowtrol
 import android.app.DatePickerDialog
 import uv.tc.cowtrol.adaptadores.VisualizarPotreroAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -22,6 +23,7 @@ import uv.tc.cowtrol.databinding.ActivityVisualizarPotreroBinding
 import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.EventoBD
 import uv.tc.cowtrol.modelo.PotreroBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.Becerro
 import uv.tc.cowtrol.poko.Evento
 import java.util.Calendar
@@ -30,8 +32,11 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
     lateinit var binding: ActivityVisualizarPotreroBinding
     lateinit var becerroBD: BecerroBD
     lateinit var potreroBD: PotreroBD
+    lateinit var usuarioBD: UsuariosBD
     lateinit var eventoBD: EventoBD
     var numeroPotrero: Int = 0
+    var correo: String? = ""
+    var rancho: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVisualizarPotreroBinding.inflate(layoutInflater)
@@ -40,8 +45,16 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
         eventoBD = EventoBD(this@VisualizarPotreroActivity)
         becerroBD = BecerroBD(this@VisualizarPotreroActivity)
         potreroBD = PotreroBD(this@VisualizarPotreroActivity)
+        usuarioBD = UsuariosBD(this@VisualizarPotreroActivity)
+        val lista = potreroBD.retornarPotrerosRegistrados()
+        Log.i("Potreros", lista.toString())
+        correo = intent.getStringExtra("correo")
+        rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         configurarRecyclerPotreros()
         llenarSpinner()
+        binding.btnRegresar.setOnClickListener {
+            finish()
+        }
         binding.spPotrero.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -51,7 +64,7 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
             ) {
                 val selectedPotrero = parent.getItemAtPosition(position)
                 numeroPotrero = selectedPotrero.toString().toInt()
-                val becerros = becerroBD.seleccionarBecerrosPorPotrero(numeroPotrero)
+                val becerros = becerroBD.seleccionarBecerrosPorPotrero(numeroPotrero,rancho.toString())
                 binding.rvPotreros.adapter = VisualizarPotreroAdapter(becerros, this@VisualizarPotreroActivity)
             }
 
@@ -109,7 +122,7 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
     }
 
     private fun llenarSpinner(){
-        val potreros = potreroBD.retornarPotrerosRegistrados()
+        val potreros = potreroBD.retornarPotrerosRancho(rancho.toString())
         val spinner_adapter = ArrayAdapter(this@VisualizarPotreroActivity, android.R.layout.simple_spinner_item, potreros.map { it.numeroPotrero })
         spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spPotrero.adapter = spinner_adapter

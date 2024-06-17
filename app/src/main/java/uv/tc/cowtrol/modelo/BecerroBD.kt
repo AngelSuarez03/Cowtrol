@@ -118,10 +118,10 @@ class BecerroBD(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
     }
 
     @SuppressLint("Range")
-    fun seleccionarBecerrosPorPotrero(potrero: Int): List<Becerro> {
+    fun seleccionarBecerrosPorPotrero(potrero: Int, rancho: String): List<Becerro> {
         val misBecerros = mutableListOf<Becerro>()
         val db = readableDatabase
-        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, null, "$COL_POTRERO = ?", arrayOf(potrero.toString()), null, null, null)
+        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, null, "$COL_POTRERO = ? AND $COL_RANCHO = ?", arrayOf(potrero.toString(),rancho), null, null, null)
         if (resultadoConsulta != null) {
             while (resultadoConsulta.moveToNext()) {
                 val sexo = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_SEXO))

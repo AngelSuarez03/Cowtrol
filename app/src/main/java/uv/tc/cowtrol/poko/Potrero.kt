@@ -7,5 +7,6 @@ data class Potrero(
     val ubicacion: String,
     val ancho: Double,
     val largo: Double,
-    val alto: Double
+    val alto: Double,
+    val rancho: String
 )

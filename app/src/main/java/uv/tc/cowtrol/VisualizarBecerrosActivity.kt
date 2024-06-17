@@ -37,9 +37,6 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
         cargarMisBecerros()
 
         binding.btnRegresarMenuBecerro.setOnClickListener {
-            val intent = Intent(this@VisualizarBecerrosActivity, MenuBecerroActivity::class.java)
-            intent.putExtra("correo", correo)
-            startActivity(intent)
             finish()
         }
     }
@@ -85,6 +82,7 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
         intent.putExtra("potrero", becerro.potrero)
         intent.putExtra("correo", correo)
         startActivity(intent)
+        finish()
     }
 
     private fun obtenerRanchoDelUsuario(correo: String): String? {

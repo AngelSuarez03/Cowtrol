@@ -17,6 +17,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegistrarTrabajadorBinding
     lateinit var potreroBD: PotreroBD
     lateinit var usuarioBD: UsuariosBD
+    var correo: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarTrabajadorBinding.inflate(layoutInflater)
@@ -24,6 +25,8 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
         setContentView(view)
         potreroBD = PotreroBD(this@RegistrarTrabajadorActivity)
         usuarioBD = UsuariosBD(this@RegistrarTrabajadorActivity)
+        correo = intent.getStringExtra("correo")
+        val rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         opcionesSpinnerPuesto()
         cargarPotrerosRegistrados()
         binding.btnRegistrarTrabajador.setOnClickListener {
@@ -46,7 +49,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
                     nombre,
                     puesto,
                     sexo,
-                    "rancho1",
+                    rancho,
                     potrero,
                     edad
                 )
@@ -137,10 +140,6 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
         if(binding.etCorreoTrabajador.text.isEmpty()){
             valido = false
             binding.etCorreoTrabajador.error = "Campo Obligatorio"
-        }
-        if(!binding.rbMujer.isActivated && !binding.rbHombre.isActivated){
-            valido = false
-            Toast.makeText(this@RegistrarTrabajadorActivity, "Seleccione un sexo", Toast.LENGTH_LONG).show()
         }
         if(!binding.etCorreoTrabajador.text.matches(correoValido.toRegex())){
             valido = false
