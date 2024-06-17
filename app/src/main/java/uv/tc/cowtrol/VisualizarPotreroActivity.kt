@@ -86,12 +86,23 @@ class VisualizarPotreroActivity : AppCompatActivity(), ListenerRecycleBecerros {
 
         val guardarEvento: Button = dialogLayout.findViewById(R.id.btn_guardar_evento)
         guardarEvento.setOnClickListener {
-            val fecha_dialog = fecha.text.toString()
-            val tipo_dialog = tipo.selectedItem.toString()
-            val descripcion_dialog = descripcion.text.toString()
-            val evento = Evento(becerro.siiniga, fecha_dialog, tipo_dialog, descripcion_dialog)
-            añadirEvento(evento)
-            dialog.dismiss()
+            var valido = true
+            if(fecha.text.isEmpty()){
+                valido = false
+                fecha.error = "Campo Obligatorio"
+            }
+            if(descripcion.text.isEmpty()) {
+                valido = false
+                descripcion.error = "Campo Obligatorio"
+            }
+            if(valido) {
+                val fecha_dialog = fecha.text.toString()
+                val tipo_dialog = tipo.selectedItem.toString()
+                val descripcion_dialog = descripcion.text.toString()
+                val evento = Evento(becerro.siiniga, fecha_dialog, tipo_dialog, descripcion_dialog)
+                añadirEvento(evento)
+                dialog.dismiss()
+            }
         }
 
         dialog.show()
