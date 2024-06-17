@@ -1,5 +1,7 @@
 package uv.tc.cowtrol
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +20,14 @@ class SolicitarAsesoriaVeterinariaActivity() : AppCompatActivity() {
 
         val recyclerView =findViewById<RecyclerView>(R.id.rv_asesoria_veterinaria)
         val adapter = VeterinarioAdapter(){
-            Toast.makeText(this@SolicitarAsesoriaVeterinariaActivity,"telefono $it",Toast.LENGTH_LONG).show()
+            val url = "tel:" + it
+            val uriContenido = Uri.parse(url)
+            val intent = Intent(Intent.ACTION_VIEW, uriContenido)
+            startActivity(intent)
+            }
+
+        binding.btRegresarAnadirPotrero.setOnClickListener {
+            finish()
         }
 
         recyclerView.layoutManager = LinearLayoutManager(this@SolicitarAsesoriaVeterinariaActivity)
