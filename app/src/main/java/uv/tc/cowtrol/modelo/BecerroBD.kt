@@ -46,7 +46,7 @@ class BecerroBD(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        // Código de actualización de la base de datos, si es necesario
+
     }
     fun crearTabla(){
         val db = writableDatabase

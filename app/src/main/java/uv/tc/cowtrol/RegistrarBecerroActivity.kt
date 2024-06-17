@@ -44,7 +44,6 @@ class RegistrarBecerroActivity : AppCompatActivity() {
 
         correo = intent.getStringExtra("correo") ?: ""
 
-        // Si correo está vacío, mostramos un mensaje y cerramos la actividad
         if (correo.isEmpty()) {
             Toast.makeText(this, "Correo no recibido", Toast.LENGTH_LONG).show()
             finish()
@@ -52,7 +51,7 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         }
 
         modelo.crearTabla()
-        Log.d("RegistrarBecerroActivity", "Tabla becerro se está creando...")
+        Log.i("RegistrarBecerroActivity", "Tabla becerro se está creando...")
 
         val spinner = binding.spinnerPotrero
 

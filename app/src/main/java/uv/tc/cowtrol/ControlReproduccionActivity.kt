@@ -97,14 +97,14 @@ class ControlReproduccionActivity : AppCompatActivity() {
         return becerro.map { it.siiniga }
     }
 
-    fun mostrarDatePicker(editText: EditText) {
+    private fun mostrarDatePicker(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
-            this,
+            this, uv.tc.cowtrol.R.style.CustomDatePickerDialog,
             { _, selectedYear, selectedMonth, selectedDayOfMonth ->
                 val fechaSeleccionada = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
                 editText.setText(fechaSeleccionada)
@@ -113,9 +113,14 @@ class ControlReproduccionActivity : AppCompatActivity() {
             month,
             dayOfMonth
         )
+
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
         datePickerDialog.show()
         binding.etFechaRevision.error = null
     }
+
+
 
     private fun agregarControl (control: ControlReproduccion) {
         val resultadoIncercion = controlBD.añadirControl(control)
