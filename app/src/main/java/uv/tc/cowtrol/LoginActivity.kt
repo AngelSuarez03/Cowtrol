@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         //becerroBD.eliminarTabla()
 
         controlBD = ControlReproduccionBD(this@LoginActivity)
-        controlBD.crearTabla()
+        //controlBD.crearTabla()
         //controlBD.dropTabla()
 
         ranchoBD = RanchoBD(this@LoginActivity)

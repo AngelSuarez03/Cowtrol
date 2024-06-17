@@ -8,6 +8,6 @@ data class ControlReproduccion(
     val diaParto: String,
     val tipo: String,
     val descripcion: String?,
-    val cargada: Boolean,
+    val cargada: String,
     val rancho: String
 )

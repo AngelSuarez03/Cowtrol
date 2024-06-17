@@ -4,6 +4,7 @@ import android.R
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -26,7 +27,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
     lateinit var controlBD: ControlReproduccionBD
     var correo: String? = ""
     var rancho: String? = ""
-    var cargada: Int = 0
+    var cargada: String = "false"
     var potreroSeleccionado: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +41,8 @@ class ControlReproduccionActivity : AppCompatActivity() {
         potreroBD = PotreroBD(this@ControlReproduccionActivity)
         becerrosBD = BecerroBD(this@ControlReproduccionActivity)
         llenarSpinners()
-        binding.switchCargada.setOnCheckedChangeListener{ button, isChecked ->
-            if(isChecked)
-                cargada = 1
-            else
-                cargada = 0
+        binding.switchCargada.setOnCheckedChangeListener { buttonView, isChecked ->
+            cargada = isChecked.toString()
         }
         binding.spPotreros.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -72,6 +70,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
             val diaParto = binding.etDiaParto.text.toString()
             val tipo = binding.spTipo.selectedItem.toString()
             val descripcion = binding.etDescripcion.text.toString()
+            val bol = binding.switchCargada.isChecked
             if (validarDatos()) {
                 val controlReproduccion = ControlReproduccion(
                     potrero,
@@ -81,7 +80,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
                     diaParto,
                     tipo,
                     descripcion,
-                    cargada.toString().toBoolean(),
+                    cargada,
                     rancho.toString()
                 )
                 agregarControl(controlReproduccion)

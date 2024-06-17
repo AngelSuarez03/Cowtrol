@@ -30,7 +30,7 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_TABLE_BECERROS =
             ("CREATE TABLE IF NOT EXISTS ${NOMBRE_TABLA} ($COL_POTRERO INTEGER, $COL_SINIIGA_ANIMAL INTEGER, $COL_FECHA_REVISION TEXT, $COL_TEMPORADA_REPRODUCCION TEXT, $COL_DIA_PARTO TEXT" +
-                    "$COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA INTEGER, $COL_RANCHO TEXT)")
+                    "$COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA TEXT, $COL_RANCHO TEXT)")
         db?.execSQL(CREATE_TABLE_BECERROS)
     }
 
@@ -97,11 +97,11 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
                 val descripcion = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
                     COL_Descripcion
                 ))
-                val cargada = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                val cargada = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
                     COL_CARGADA
                 ))
                 val rancho = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
-                val control = ControlReproduccion(numeroPotrero, siniiga, fechaRevision, temporadaReproduccion, diaParto, tipo, descripcion, cargada.toString().toBoolean(), rancho)
+                val control = ControlReproduccion(numeroPotrero, siniiga, fechaRevision, temporadaReproduccion, diaParto, tipo, descripcion, cargada.toString(), rancho)
                 controles.add(control)
             }
             resultadoConsulta.close()
