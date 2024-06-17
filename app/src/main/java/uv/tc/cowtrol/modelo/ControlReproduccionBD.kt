@@ -23,13 +23,14 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
         private const val COL_TIPO = "tipo"
         private const val COL_Descripcion = "descripcion"
         private const val COL_CARGADA = "cargada"
+        private const val COL_RANCHO = "rancho"
         private const val VERSION_BD = 1
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_TABLE_BECERROS =
             ("CREATE TABLE IF NOT EXISTS ${NOMBRE_TABLA} ($COL_POTRERO INTEGER, $COL_SINIIGA_ANIMAL INTEGER, $COL_FECHA_REVISION TEXT, $COL_TEMPORADA_REPRODUCCION TEXT, $COL_DIA_PARTO TEXT" +
-                    "$COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA INTEGER)")
+                    "$COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA INTEGER, $COL_RANCHO TEXT)")
         db?.execSQL(CREATE_TABLE_BECERROS)
     }
 
@@ -40,7 +41,7 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
     fun crearTabla() {
         val db = writableDatabase
         val CREATE_TABLE_BECERROS =
-            ("CREATE TABLE IF NOT EXISTS $NOMBRE_TABLA ($COL_POTRERO INTEGER, $COL_SINIIGA_ANIMAL INTEGER, $COL_FECHA_REVISION TEXT, $COL_TEMPORADA_REPRODUCCION TEXT, $COL_DIA_PARTO TEXT, $COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA INTEGER)")
+            ("CREATE TABLE IF NOT EXISTS $NOMBRE_TABLA ($COL_POTRERO INTEGER, $COL_SINIIGA_ANIMAL INTEGER, $COL_FECHA_REVISION TEXT, $COL_TEMPORADA_REPRODUCCION TEXT, $COL_DIA_PARTO TEXT, $COL_TIPO TEXT, $COL_Descripcion TEXT, $COL_CARGADA INTEGER, $COL_RANCHO TEXT)")
         db?.execSQL(CREATE_TABLE_BECERROS)
     }
 
@@ -61,6 +62,7 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
             put(COL_TIPO, control.tipo)
             put(COL_Descripcion, control.descripcion)
             put(COL_CARGADA, control.cargada)
+            put(COL_RANCHO, control.rancho)
         }
         val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
         db.close()
@@ -68,10 +70,11 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
     }
 
     @SuppressLint("Range")
-    fun obtenerControles(): List<ControlReproduccion>{
+    fun obtenerControles(rancho: String): List<ControlReproduccion>{
         val db = readableDatabase
         val controles = mutableListOf<ControlReproduccion>()
-        val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, null,null,null,null,null)
+        val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, "$COL_RANCHO = ?",
+            arrayOf(rancho),null,null,null)
         if(resultadoConsulta != null){
             while (resultadoConsulta.moveToNext()){
                 val numeroPotrero = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
@@ -97,7 +100,8 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
                 val cargada = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
                     COL_CARGADA
                 ))
-                val control = ControlReproduccion(numeroPotrero, siniiga, fechaRevision, temporadaReproduccion, diaParto, tipo, descripcion, cargada.toString().toBoolean())
+                val rancho = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
+                val control = ControlReproduccion(numeroPotrero, siniiga, fechaRevision, temporadaReproduccion, diaParto, tipo, descripcion, cargada.toString().toBoolean(), rancho)
                 controles.add(control)
             }
             resultadoConsulta.close()

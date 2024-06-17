@@ -6,20 +6,29 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import uv.tc.cowtrol.databinding.ActivityControlReproduccionMainBinding
 import uv.tc.cowtrol.modelo.ControlReproduccionBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.ControlReproduccion
 
 class ControlReproduccionMainActivity : AppCompatActivity() {
     lateinit var binding: ActivityControlReproduccionMainBinding
+    lateinit var usuarioBD: UsuariosBD
     lateinit var controlBD: ControlReproduccionBD
+    var rancho: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityControlReproduccionMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         controlBD = ControlReproduccionBD(this@ControlReproduccionMainActivity)
+        usuarioBD = UsuariosBD(this@ControlReproduccionMainActivity)
         llenarListView()
+        val correo = intent.getStringExtra("correo")
+        rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
+        rancho
         binding.btnAgregarControl.setOnClickListener {
-            val intent = Intent(this@ControlReproduccionMainActivity, ControlReproduccionActivity::class.java)
+            val intent = Intent(this@ControlReproduccionMainActivity, ControlReproduccionActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
         binding.btnRegresar.setOnClickListener {
@@ -33,7 +42,7 @@ class ControlReproduccionMainActivity : AppCompatActivity() {
     }
 
     private fun llenarListView (){
-        val control = controlBD.obtenerControles()
+        val control = controlBD.obtenerControles(rancho.toString())
         val controlesReales = mutableListOf<String>()
         for(controles in control){
             val reproduccion = "Potrero: ${controles.potrero}\n" +
