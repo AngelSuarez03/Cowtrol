@@ -21,7 +21,7 @@ class RegistroRanchoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = RanchoBD(this@RegistroRanchoActivity)
-        modelo.crearTabla()
+        //modelo.crearTabla()
 
         binding.btRegistrarRancho.setOnClickListener{
             if (validarCampos()){
