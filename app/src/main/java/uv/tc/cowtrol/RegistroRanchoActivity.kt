@@ -1,5 +1,6 @@
 package uv.tc.cowtrol
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -9,11 +10,14 @@ import androidx.core.view.WindowInsetsCompat
 import uv.tc.cowtrol.databinding.ActivityMainBinding
 import uv.tc.cowtrol.databinding.ActivityRegistroRanchoBinding
 import uv.tc.cowtrol.modelo.RanchoBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.Rancho
 
 class RegistroRanchoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistroRanchoBinding
     private lateinit var modelo: RanchoBD
+    private lateinit var usuarioBD : UsuariosBD
+    var correo: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,8 @@ class RegistroRanchoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = RanchoBD(this@RegistroRanchoActivity)
-        //modelo.crearTabla()
+        usuarioBD = UsuariosBD(this@RegistroRanchoActivity)
+        correo = intent.getStringExtra("correo")
 
         binding.btRegistrarRancho.setOnClickListener{
             if (validarCampos()){
@@ -40,10 +45,13 @@ class RegistroRanchoActivity : AppCompatActivity() {
         val mensaje:String
         if (resultadoInsercion>0){
             mensaje = "Rancho creado con éxito"
-            binding.etNombreRegistroRancho.setText("")
-            binding.etTelefono.setText("")
-            binding.etUbicacion.setText("")
-            binding.etProvincia.setText("")
+            usuarioBD.actualizarRancho(correo.toString(), binding.etNombreRegistroRancho.text.toString())
+            finish()
+            val intent = Intent(this@RegistroRanchoActivity, PrincipalActivity::class.java).apply {
+                putExtra("correo", correo.toString())
+                putExtra("rancho", binding.etNombreRegistroRancho.text.toString())
+            }
+            startActivity(intent)
         }else {
             mensaje = "Hubo un error al registrar el rancho, intentelo nuevamente"
         }

@@ -27,7 +27,7 @@ class CrearCuentaActivity : AppCompatActivity() {
         binding.btnCrearCuenta.setOnClickListener {
             if (validarCamposUsuario()) {
                 val nuevoUsuario = Usuario(
-                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", "rancho1", null, null)
+                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", null, null, null)
                 agregarUsuario(nuevoUsuario)
             }
         }

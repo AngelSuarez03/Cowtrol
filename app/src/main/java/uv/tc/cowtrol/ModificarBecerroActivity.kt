@@ -16,7 +16,9 @@ import androidx.core.view.WindowInsetsCompat
 import uv.tc.cowtrol.databinding.ActivityModificarBecerroBinding
 import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.PotreroBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.Becerro
+import uv.tc.cowtrol.poko.Usuario
 import java.util.Calendar
 
 class ModificarBecerroActivity : AppCompatActivity() {
@@ -24,6 +26,8 @@ class ModificarBecerroActivity : AppCompatActivity() {
     lateinit var binding: ActivityModificarBecerroBinding
     private var potreroSeleccionado: String = ""
     private lateinit var correo: String
+    var rancho: String? = ""
+    private lateinit var usuarioBD: UsuariosBD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +35,10 @@ class ModificarBecerroActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        usuarioBD = UsuariosBD(this@ModificarBecerroActivity)
+
         correo = intent.getStringExtra("correo") ?: ""
+        rancho = usuarioBD.obtenerRanchoDelUsuario(correo)
 
         val siiniga = intent.getIntExtra("siiniga", 0)
         val sexo = intent.getStringExtra("sexo")
@@ -150,7 +157,7 @@ class ModificarBecerroActivity : AppCompatActivity() {
 
     private fun cargarPotreros(): List<String> {
         val potreroBD = PotreroBD(this@ModificarBecerroActivity)
-        val potreros = potreroBD.retornarPotrerosRegistrados()
+        val potreros = potreroBD.retornarPotrerosRancho(rancho.toString())
         return potreros.map { it.numeroPotrero.toString() }
     }
 

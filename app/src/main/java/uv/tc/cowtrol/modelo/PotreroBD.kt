@@ -20,6 +20,7 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         private const val COL_ANCHO = "ancho"
         private const val COL_LARGO = "largo"
         private const val COL_ALTO = "alto"
+        private const val COL_RANCHO = "rancho"
         private const val VERSION_BD = 1
 
     }
@@ -35,7 +36,13 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
 
     fun crearTablaPotrero(){
         val db = writableDatabase
-        val CREATE_TABLE_POTRERO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NUMERO_POTRERO} INT PRIMARY KEY, ${COL_NOMBRE} TEXT, ${COL_CAPACIDAD} INT, ${COL_UBICACION} TEXT, ${COL_ANCHO} REAL, ${COL_LARGO} REAL, ${COL_ALTO} REAL )")
+        val CREATE_TABLE_POTRERO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NUMERO_POTRERO} INT PRIMARY KEY, ${COL_NOMBRE} TEXT, ${COL_CAPACIDAD} INT, ${COL_UBICACION} TEXT, ${COL_ANCHO} REAL, ${COL_LARGO} REAL, ${COL_ALTO} REAL, $COL_RANCHO TEXT )")
+        db!!.execSQL(CREATE_TABLE_POTRERO);
+    }
+
+    fun eliminarTabla() {
+        val db = writableDatabase
+        val CREATE_TABLE_POTRERO = ("DROP TABLE $NOMBRE_TABLA")
         db!!.execSQL(CREATE_TABLE_POTRERO);
     }
 
@@ -49,6 +56,7 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
             put(COL_ANCHO, potrero.ancho)
             put(COL_LARGO, potrero.largo)
             put(COL_ALTO, potrero.alto)
+            put(COL_RANCHO, potrero.rancho)
         }
         val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
         db.close()
@@ -75,7 +83,39 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
                 val largoPotrero = resultadoConsulta.getDouble(resultadoConsulta.getColumnIndex(
                     COL_LARGO))
                 val altoPotrero = resultadoConsulta.getDouble(resultadoConsulta.getColumnIndex(COL_ALTO))
-                val potrero = Potrero(numeroPotrero, nombrePotrero, capacidadPotrero, ubicacionPotrero, anchoPotrero, largoPotrero, altoPotrero)
+                val rancho = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
+                val potrero = Potrero(numeroPotrero, nombrePotrero, capacidadPotrero, ubicacionPotrero, anchoPotrero, largoPotrero, altoPotrero, rancho)
+                potreros.add(potrero)
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return potreros
+    }
+
+    @SuppressLint("Range")
+    fun retornarPotrerosRancho(rancho: String): List<Potrero> {
+        val potreros = mutableListOf<Potrero>()
+        val db = readableDatabase
+        val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, "$COL_RANCHO = ?",
+            arrayOf(rancho),null,null,null)
+        if(resultadoConsulta != null){
+            while (resultadoConsulta.moveToNext()){
+                val numeroPotrero = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                    COL_NUMERO_POTRERO))
+                val nombrePotrero = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_NOMBRE))
+                val capacidadPotrero = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                    COL_CAPACIDAD))
+                val ubicacionPotrero = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_UBICACION))
+                val anchoPotrero = resultadoConsulta.getDouble(resultadoConsulta.getColumnIndex(
+                    COL_ANCHO))
+                val largoPotrero = resultadoConsulta.getDouble(resultadoConsulta.getColumnIndex(
+                    COL_LARGO))
+                val altoPotrero = resultadoConsulta.getDouble(resultadoConsulta.getColumnIndex(COL_ALTO))
+                val rancho = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
+                val potrero = Potrero(numeroPotrero, nombrePotrero, capacidadPotrero, ubicacionPotrero, anchoPotrero, largoPotrero, altoPotrero, rancho)
                 potreros.add(potrero)
             }
             resultadoConsulta.close()

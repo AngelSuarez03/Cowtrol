@@ -12,12 +12,17 @@ class MenuPotreroActivity : AppCompatActivity() {
         binding = ActivityMenuPotreroBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        val correo = intent.getStringExtra("correo")
         binding.lnRegistrarPotrero.setOnClickListener {
-            val intent = Intent(this@MenuPotreroActivity, AnadirPotreroActivity::class.java)
+            val intent = Intent(this@MenuPotreroActivity, AnadirPotreroActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
         binding.lnVerPotrero.setOnClickListener {
-            val intent = Intent(this@MenuPotreroActivity, VisualizarPotreroActivity::class.java)
+            val intent = Intent(this@MenuPotreroActivity, VisualizarPotreroActivity::class.java).apply {
+                putExtra("correo", correo)
+            }
             startActivity(intent)
         }
         binding.btnRegresar.setOnClickListener {

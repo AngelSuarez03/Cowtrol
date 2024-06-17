@@ -5,12 +5,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import uv.tc.cowtrol.databinding.ActivityAnadirPotreroBinding
 import uv.tc.cowtrol.modelo.PotreroBD
+import uv.tc.cowtrol.modelo.UsuariosBD
 import uv.tc.cowtrol.poko.Potrero
 
 class AnadirPotreroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAnadirPotreroBinding
     private lateinit var modelo: PotreroBD
-
+    private lateinit var usuarioBD: UsuariosBD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +19,14 @@ class AnadirPotreroActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = PotreroBD(this@AnadirPotreroActivity)
+        usuarioBD = UsuariosBD(this@AnadirPotreroActivity)
+        val correo = intent.getStringExtra("correo")
+        val rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         //modelo.crearTablaPotrero()
         binding.btRegistrarPotrero.setOnClickListener{
             if (validarDatos()){
                 val potreroNuevo = Potrero(binding.etNumeroPotrero.text.toString().toInt(),binding.etNombre.text.toString(),binding.etCapacidad.text.toString().toInt(),
-                    binding.etUbicacion.text.toString(),binding.etAncho.text.toString().toDouble(),binding.etLargo.text.toString().toDouble(),binding.etAlto.text.toString().toDouble())
+                    binding.etUbicacion.text.toString(),binding.etAncho.text.toString().toDouble(),binding.etLargo.text.toString().toDouble(),binding.etAlto.text.toString().toDouble(), rancho.toString())
                 agregarPotrero(potreroNuevo)
             }
         }

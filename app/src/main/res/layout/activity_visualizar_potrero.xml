@@ -57,7 +57,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="450dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_potreros"
@@ -67,6 +67,7 @@
     </ScrollView>
 
     <ImageView
+        android:id="@+id/btn_regresar"
         android:layout_width="39dp"
         android:layout_height="37dp"
         android:layout_marginTop="20dp"
