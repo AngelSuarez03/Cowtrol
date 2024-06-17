@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_campo_datos"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="26dp"
                 android:layout_marginEnd="25dp"
                 android:textColor="@color/black"
                 android:padding="5dp"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginEnd="25dp"
                 app:endIconMode="password_toggle"
                 android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
