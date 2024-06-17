@@ -83,5 +83,4 @@ class PotreroBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null,
         db.close()
         return potreros
     }
-
 }

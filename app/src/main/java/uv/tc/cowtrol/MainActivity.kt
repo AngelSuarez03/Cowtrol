@@ -1,7 +1,6 @@
 package uv.tc.cowtrol
 
 import android.content.Intent
-import android.icu.text.Transliterator.Position
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -21,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnPrueba.setOnClickListener {
-            val intent = Intent(this,SolicitarAsesoriaVeterinariaActivity::class.java)
+            val intent = Intent(this,   LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

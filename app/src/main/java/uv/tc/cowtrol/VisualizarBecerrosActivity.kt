@@ -1,6 +1,7 @@
 package uv.tc.cowtrol
 
 import adaptadores.BecerroAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
     private lateinit var binding: ActivityVisualizarBecerrosBinding
     private lateinit var modelo: BecerroBD
     private lateinit var correo: String
+    private lateinit var sexo: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,6 +28,8 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
         modelo = BecerroBD(this@VisualizarBecerrosActivity)
 
         correo = intent.getStringExtra("correo") ?: ""
+
+        sexo = intent.getStringExtra("sexoSeleccionado") ?:""
 
         confiugurarRecyclerBecerros()
         cargarMisBecerros()
@@ -55,6 +59,17 @@ class VisualizarBecerrosActivity : AppCompatActivity(), ListenerRecycleBecerros 
     }
 
     override fun clicEditarBecerro(becerro: Becerro, posicion: Int) {
-
+        val intent = Intent(this@VisualizarBecerrosActivity, ModificarBecerroActivity::class.java)
+        intent.putExtra("siiniga", becerro.siiniga)
+        intent.putExtra("correo", becerro.correoUsuario)
+        intent.putExtra("sexo", becerro.sexo)
+        intent.putExtra("edad", becerro.edad)
+        intent.putExtra("pesoNacer", becerro.pesoNacer)
+        intent.putExtra("pesoDestete", becerro.pesoDestete)
+        intent.putExtra("pesoDoce", becerro.pesoDoce)
+        intent.putExtra("fechaNa", becerro.fechaNacimiento)
+        intent.putExtra("nombre", becerro.nombre)
+        intent.putExtra("potrero", becerro.potrero)
+        startActivity(intent)
     }
 }
