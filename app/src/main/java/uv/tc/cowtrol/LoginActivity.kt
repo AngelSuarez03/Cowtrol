@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import uv.tc.cowtrol.databinding.ActivityLoginBinding
+import uv.tc.cowtrol.modelo.BecerroBD
 import uv.tc.cowtrol.modelo.PotreroBD
 import uv.tc.cowtrol.modelo.UsuariosBD
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     lateinit var potreroBd: PotreroBD
+    lateinit var becerroBD: BecerroBD
     lateinit var modelo: UsuariosBD
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,9 @@ class LoginActivity : AppCompatActivity() {
 
         //potreroBd.crearTablaPotrero()
         modelo = UsuariosBD(this@LoginActivity)
+
+        becerroBD = BecerroBD(this@LoginActivity)
+        //becerroBD.crearTabla()
 
         var mensaje = ""
         binding.btnIngresarLogin.setOnClickListener{

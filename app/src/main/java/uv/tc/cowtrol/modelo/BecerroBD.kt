@@ -25,6 +25,7 @@ class BecerroBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null
         private const val COL_POTRERO = "potrero"
         private const val COL_FECHA_NAC = "fecha_nacimiento"
         private const val COL_CORREO_USUARIO = "correo"
+        private const val COL_RANCHO = "rancho"
         private const val VERSION_BD = 1
     }
 
@@ -39,7 +40,7 @@ class BecerroBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null
 
     fun crearTabla(){
         val db = writableDatabase
-        val CREATE_TABLE_BECERRO = ("CREATE TABLE IF NOT EXISTS $NOMBRE_TABLA ($COL_SEXO TEXT, $COL_NOMBRE TEXT, $COL_SINIIGA INTEGER PRIMARY KEY,$COL_EDAD INTEGER, $COL_PESO_NACER REAL, $COL_PES0_DESTETE REAL, $COL_PESO_12 REAL, $COL_POTRERO INTEGER, $COL_FECHA_NAC TEXT, $COL_CORREO_USUARIO TEXT)")
+        val CREATE_TABLE_BECERRO = ("CREATE TABLE IF NOT EXISTS $NOMBRE_TABLA ($COL_SEXO TEXT, $COL_NOMBRE TEXT, $COL_SINIIGA INTEGER PRIMARY KEY,$COL_EDAD INTEGER, $COL_PESO_NACER REAL, $COL_PES0_DESTETE REAL, $COL_PESO_12 REAL, $COL_POTRERO INTEGER, $COL_FECHA_NAC TEXT, $COL_CORREO_USUARIO TEXT, $COL_RANCHO TEXT)")
         db!!.execSQL(CREATE_TABLE_BECERRO)
     }
 
@@ -90,7 +91,8 @@ class BecerroBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null
                     COL_FECHA_NAC))
                 val correo_usuario = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
                     COL_CORREO_USUARIO))
-                val becerro = Becerro(sexo, nombre, siniiga, edad, peso_nacer, peso_destete, peso_12, potrero, fecha_nac, correo_usuario)
+                val rancho = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(COL_RANCHO))
+                val becerro = Becerro(sexo, nombre, siniiga, edad, peso_nacer, peso_destete, peso_12, potrero, fecha_nac, correo_usuario, rancho)
                 misBecerros.add(becerro)
             }
             resultadoConsulta.close()

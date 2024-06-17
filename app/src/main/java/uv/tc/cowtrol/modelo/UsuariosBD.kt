@@ -18,6 +18,7 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         private const val COL_NOMBRE = "nombre"
         private const val COL_PUESTO = "puesto"
         private const val COL_SEXO = "sexo"
+        private const val COL_RANCHO = "nombreRancho"
         private const val COL_POTRERO = "potrero_asignado"
         private const val COL_EDAD = "edad"
         private const val VERSION_BD = 1
@@ -26,7 +27,7 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
 
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_TABLE_USUARIOS = ("CREATE TABLE ${NOMBRE_TABLA} ($COL_CORREO TEXT PRIMARY KEY, $COL_PASSWORD TEXT, $COL_TIPO TEXT, $COL_NOMBRE TEXT, $COL_PUESTO TEXT, $COL_SEXO TEXT, $COL_POTRERO INTEGER, $COL_EDAD INTEGER)")
+        val CREATE_TABLE_USUARIOS = ("CREATE TABLE ${NOMBRE_TABLA} ($COL_CORREO TEXT PRIMARY KEY, $COL_PASSWORD TEXT, $COL_TIPO TEXT, $COL_NOMBRE TEXT, $COL_PUESTO TEXT, $COL_SEXO TEXT, $COL_RANCHO TEXT,$COL_POTRERO INTEGER, $COL_EDAD INTEGER)")
         db!!.execSQL(CREATE_TABLE_USUARIOS);
     }
 
@@ -43,6 +44,7 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         valoresInsert.put(COL_NOMBRE, usuario.nombre)
         valoresInsert.put(COL_PUESTO, usuario.puesto)
         valoresInsert.put(COL_SEXO, usuario.sexo)
+        valoresInsert.put(COL_RANCHO, usuario.nombreRancho)
         valoresInsert.put(COL_EDAD, usuario.edad)
         val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
         db.close()

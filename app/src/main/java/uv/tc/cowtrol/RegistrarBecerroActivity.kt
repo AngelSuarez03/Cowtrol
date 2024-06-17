@@ -94,7 +94,8 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                     binding.etPesoDoce.text.toString().toFloat(),
                     potreroSeleccionado,
                     binding.etFechaNacimientoBecerro.text.toString(),
-                    correo.toString()
+                    correo.toString(),
+                    null
                 )
                 agregarBecerro(nuevoBecerro)
                 cargarBecerros.cargarMisBecerros()

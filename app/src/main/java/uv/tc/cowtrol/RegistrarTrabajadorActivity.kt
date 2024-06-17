@@ -37,7 +37,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
                 sexo = "Hombre"
             else if (binding.rbMujer.isActivated)
                 sexo = "Mujer"
-            val usuario = Usuario(correo,password,"Trabajador",nombre, puesto, sexo, potrero, edad)
+            val usuario = Usuario(correo,password,"Trabajador",nombre, puesto, sexo,null, potrero, edad)
             registrarTrabajador(usuario)
             dialogoPassword(password)
         }
