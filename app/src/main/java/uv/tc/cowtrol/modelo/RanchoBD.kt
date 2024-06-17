@@ -21,7 +21,7 @@ class RanchoBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
 
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_TABLE_RANCHO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NOMBRE} TEXT PRIMARY KEY, ${COL_UBICACION} TEXT, ${COL_TELEFONO} INT, ${COL_PROVINCIA} TEXT)")
+        val CREATE_TABLE_RANCHO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NOMBRE} TEXT PRIMARY KEY, ${COL_UBICACION} TEXT, ${COL_TELEFONO} TEXT, ${COL_PROVINCIA} TEXT)")
         db!!.execSQL(CREATE_TABLE_RANCHO)
     }
 
@@ -31,7 +31,7 @@ class RanchoBD (contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD, null,
 
     fun crearTabla(){
         val db = writableDatabase
-        val CREATE_TABLE_RANCHO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NOMBRE} TEXT PRIMARY KEY, ${COL_UBICACION} TEXT, ${COL_TELEFONO} INT, ${COL_PROVINCIA} TEXT)")
+        val CREATE_TABLE_RANCHO = ("CREATE TABLE ${NOMBRE_TABLA} (${COL_NOMBRE} TEXT PRIMARY KEY, ${COL_UBICACION} TEXT, ${COL_TELEFONO} TEXT, ${COL_PROVINCIA} TEXT)")
         db!!.execSQL(CREATE_TABLE_RANCHO)
     }
 

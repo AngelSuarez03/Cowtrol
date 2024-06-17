@@ -22,7 +22,6 @@ class CrearCuentaActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = UsuariosBD(this@CrearCuentaActivity)
-
         //modelo.crearTabla()
 
         binding.btnCrearCuenta.setOnClickListener {

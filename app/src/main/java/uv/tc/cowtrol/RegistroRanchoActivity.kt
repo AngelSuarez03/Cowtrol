@@ -21,11 +21,11 @@ class RegistroRanchoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = RanchoBD(this@RegistroRanchoActivity)
-        modelo.crearTabla()
+        //modelo.crearTabla()
 
         binding.btRegistrarRancho.setOnClickListener{
             if (validarCampos()){
-                val nuevoRancho = Rancho(binding.etNombreRegistroRancho.text.toString(),binding.etUbicacion.text.toString(),binding.etTelefono.text.toString().toInt(),
+                val nuevoRancho = Rancho(binding.etNombreRegistroRancho.text.toString(),binding.etUbicacion.text.toString(),binding.etTelefono.text.toString(),
                     binding.etProvincia.text.toString())
                 agregarRancho(nuevoRancho)
             }

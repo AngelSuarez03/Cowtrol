@@ -57,6 +57,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="30dp"
                     android:maxLines="1"
+                    android:maxLength="50"
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/black"
                     android:background="@drawable/edit_text_background" />
@@ -82,6 +83,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="20dp"
                     android:maxLines="1"
+                    android:maxLength="50"
                     android:textColor="@color/black"
                     android:background="@drawable/edit_text_background"/>
 
@@ -133,6 +135,7 @@
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/black"
                     android:maxLines="1"
+                    android:maxLength="50"
                     android:background="@drawable/edit_text_background"/>
 
         </LinearLayout>
