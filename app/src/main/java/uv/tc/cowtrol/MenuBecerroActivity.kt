@@ -26,6 +26,7 @@ class MenuBecerroActivity : AppCompatActivity() {
                 putExtra("correo", correo)
             }
             startActivity(intent)
+            finish()
         }
 
         binding.lnVerBecerro.setOnClickListener {

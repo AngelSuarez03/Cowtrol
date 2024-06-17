@@ -31,7 +31,7 @@ class RegistrarBecerroActivity : AppCompatActivity() {
     private var potreroSeleccionado: String = ""
     private lateinit var cargarBecerros : VisualizarBecerrosActivity
     private lateinit var usuarioModelo: UsuariosBD
-    private lateinit var correo: String
+    var correo: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,16 +42,16 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         cargarBecerros = VisualizarBecerrosActivity()
         usuarioModelo = UsuariosBD(this@RegistrarBecerroActivity)
 
-        correo = intent.getStringExtra("correo") ?: ""
+        correo = intent.getStringExtra("correo")
 
         // Si correo está vacío, mostramos un mensaje y cerramos la actividad
-        if (correo.isEmpty()) {
+        if (correo!!.isEmpty()) {
             Toast.makeText(this, "Correo no recibido", Toast.LENGTH_LONG).show()
             finish()
             return
         }
 
-        modelo.crearTabla()
+        //modelo.crearTabla()
         Log.d("RegistrarBecerroActivity", "Tabla becerro se está creando...")
 
         val spinner = binding.spinnerPotrero
@@ -91,7 +91,7 @@ class RegistrarBecerroActivity : AppCompatActivity() {
 
         binding.btnRegistrarAnimal.setOnClickListener {
             if (validarCamposBecerro()) {
-                val rancho = usuarioModelo.obtenerRanchoDelUsuario(correo) ?: ""
+                val rancho = usuarioModelo.obtenerRanchoDelUsuario(correo.toString())
                 val nuevoBecerro = Becerro(
                     sexoSeleccionado.toString(),
                     binding.etNombreBecerro.text.toString(),
@@ -102,7 +102,7 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                     binding.etPesoDoce.text.toString().toFloat(),
                     potreroSeleccionado,
                     binding.etFechaNacimientoBecerro.text.toString(),
-                    rancho
+                    rancho.toString()
                 )
                 agregarBecerro(nuevoBecerro)
 
@@ -110,11 +110,14 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                 intent.putExtra("sexoSeleccionado", sexoSeleccionado)
                 intent.putExtra("correo", correo)
                 startActivity(intent)
+                finish()
             }
         }
 
         binding.btnRegresarMenuBecerro.setOnClickListener {
             val intent = Intent(this@RegistrarBecerroActivity, MenuBecerroActivity::class.java )
+            intent.putExtra("sexoSeleccionado", sexoSeleccionado)
+            intent.putExtra("correo", correo)
             startActivity(intent)
             finish()
         }
@@ -136,6 +139,9 @@ class RegistrarBecerroActivity : AppCompatActivity() {
             month,
             dayOfMonth
         )
+
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
         datePickerDialog.show()
         binding.etFechaNacimientoBecerro.error = null
     }
@@ -224,8 +230,9 @@ class RegistrarBecerroActivity : AppCompatActivity() {
     }
 
     private fun cargarPotreros(): List<Int> {
+        val rancho = usuarioModelo.obtenerRanchoDelUsuario(correo.toString())
         val potreroBD = PotreroBD(this@RegistrarBecerroActivity)
-        val potreros = potreroBD.retornarPotrerosRegistrados()
+        val potreros = potreroBD.retornarPotrerosRancho(rancho.toString())
         return potreros.map { it.numeroPotrero }
     }
 }

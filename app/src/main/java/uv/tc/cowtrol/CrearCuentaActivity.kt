@@ -27,7 +27,7 @@ class CrearCuentaActivity : AppCompatActivity() {
         binding.btnCrearCuenta.setOnClickListener {
             if (validarCamposUsuario()) {
                 val nuevoUsuario = Usuario(
-                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", "rancho1", null, null)
+                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", null, null, null)
                 agregarUsuario(nuevoUsuario)
             }
         }
@@ -68,7 +68,7 @@ class CrearCuentaActivity : AppCompatActivity() {
             binding.etCorreo.error = "Correo electrónico obligatorio"
             valido = false
         }else if(!correo.matches(correoValido.toRegex())){
-            binding.etCorreo.error = "Correo electrónico inválido"
+            binding.etCorreo.error = "Correo electronico invalido"
             valido = false
         } else {
             binding.etCorreo.error = null

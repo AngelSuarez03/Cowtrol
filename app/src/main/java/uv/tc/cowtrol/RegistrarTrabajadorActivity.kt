@@ -17,6 +17,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegistrarTrabajadorBinding
     lateinit var potreroBD: PotreroBD
     lateinit var usuarioBD: UsuariosBD
+    var correo: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarTrabajadorBinding.inflate(layoutInflater)
@@ -24,23 +25,37 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
         setContentView(view)
         potreroBD = PotreroBD(this@RegistrarTrabajadorActivity)
         usuarioBD = UsuariosBD(this@RegistrarTrabajadorActivity)
+        correo = intent.getStringExtra("correo")
+        val rancho = usuarioBD.obtenerRanchoDelUsuario(correo.toString())
         opcionesSpinnerPuesto()
         cargarPotrerosRegistrados()
         binding.btnRegistrarTrabajador.setOnClickListener {
-            val correo = binding.etCorreoTrabajador.text.toString()
-            val password = generarContraseña()
-            val nombre = binding.etNombreTrabajador.text.toString()
-            val potrero = binding.spPotreroAsignado.selectedItem.toString()
-            val edad = binding.etEdad.text.toString().toInt()
-            val puesto = binding.spPuestos.selectedItem.toString()
-            var sexo = ""
-            if(binding.rbHombre.isActivated)
-                sexo = "Hombre"
-            else if (binding.rbMujer.isActivated)
-                sexo = "Mujer"
-            val usuario = Usuario(correo,password,"Trabajador",nombre, puesto, sexo,"rancho1", potrero, edad)
-            registrarTrabajador(usuario)
-            dialogoPassword(password)
+            if(validarCampos()) {
+                val correo = binding.etCorreoTrabajador.text.toString()
+                val password = generarContraseña()
+                val nombre = binding.etNombreTrabajador.text.toString()
+                val potrero = binding.spPotreroAsignado.selectedItem.toString()
+                val edad = binding.etEdad.text.toString().toInt()
+                val puesto = binding.spPuestos.selectedItem.toString()
+                var sexo = ""
+                if (binding.rbHombre.isActivated)
+                    sexo = "Hombre"
+                else if (binding.rbMujer.isActivated)
+                    sexo = "Mujer"
+                val usuario = Usuario(
+                    correo,
+                    password,
+                    "Trabajador",
+                    nombre,
+                    puesto,
+                    sexo,
+                    rancho,
+                    potrero,
+                    edad
+                )
+                registrarTrabajador(usuario)
+                dialogoPassword(password)
+            }
         }
         binding.btnRegresar.setOnClickListener{
             finish()
@@ -70,10 +85,7 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
         val resultadoIncersion = usuarioBD.insertarUsuario(trabajador)
         if(resultadoIncersion > 0){
             msj = "Trabajador registrado correctamente"
-            binding.etEdad.setText("")
-            binding.etNombreTrabajador.setText("")
-            binding.rbHombre.isActivated = false
-            binding.rbMujer.isActivated = false
+            limpiarCampos()
         } else {
             msj = "Error al registrar el trabajador\nVerifique los campos"
         }
@@ -104,6 +116,36 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         builder.show()
+    }
+
+    private fun limpiarCampos() {
+        binding.etNombreTrabajador.setText("")
+        binding.etEdad.setText("")
+        binding.etCorreoTrabajador.setText("")
+        binding.rbMujer.isActivated = false
+        binding.rbHombre.isActivated = false
+    }
+
+    private fun validarCampos(): Boolean {
+        var valido = true
+        val correoValido = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+        if(binding.etNombreTrabajador.text.isEmpty()) {
+            valido = false
+            binding.etNombreTrabajador.error = "Campo Obligatorio"
+        }
+        if(binding.etEdad.text.isEmpty()){
+            valido = false
+            binding.etEdad.error = "Campo Obligatorio"
+        }
+        if(binding.etCorreoTrabajador.text.isEmpty()){
+            valido = false
+            binding.etCorreoTrabajador.error = "Campo Obligatorio"
+        }
+        if(!binding.etCorreoTrabajador.text.matches(correoValido.toRegex())){
+            valido = false
+            binding.etCorreoTrabajador.error = "Correo electronico invalido"
+        }
+        return valido
     }
 
 }

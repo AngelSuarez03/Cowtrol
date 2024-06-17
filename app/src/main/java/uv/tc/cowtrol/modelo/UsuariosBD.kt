@@ -92,4 +92,14 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         db.close()
         return rancho
     }
+
+    fun actualizarRancho(correo: String, rancho: String): Int {
+        val db = writableDatabase
+        val valoresUpdate = ContentValues().apply {
+            put(COL_RANCHO, rancho)
+        }
+        val filasAfectadas = db.update(NOMBRE_TABLA, valoresUpdate, "${COL_CORREO} = ?", arrayOf(correo))
+        db.close()
+        return filasAfectadas
+    }
 }
