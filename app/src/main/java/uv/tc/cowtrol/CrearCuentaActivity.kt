@@ -23,10 +23,12 @@ class CrearCuentaActivity : AppCompatActivity() {
         setContentView(view)
         modelo = UsuariosBD(this@CrearCuentaActivity)
 
+        //modelo.crearTabla()
+
         binding.btnCrearCuenta.setOnClickListener {
             if (validarCamposUsuario()) {
                 val nuevoUsuario = Usuario(
-                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", null, null, null)
+                    binding.etCorreo.text.toString(), binding.etPassword.text.toString(), "Dueño", "", "", "", "rancho1", null, null)
                 agregarUsuario(nuevoUsuario)
             }
         }

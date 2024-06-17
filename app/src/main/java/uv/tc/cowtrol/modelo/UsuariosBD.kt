@@ -25,17 +25,29 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
 
     }
 
-
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_TABLE_USUARIOS = ("CREATE TABLE ${NOMBRE_TABLA} ($COL_CORREO TEXT PRIMARY KEY, $COL_PASSWORD TEXT, $COL_TIPO TEXT, $COL_NOMBRE TEXT, $COL_PUESTO TEXT, $COL_SEXO TEXT, $COL_RANCHO TEXT,$COL_POTRERO INTEGER, $COL_EDAD INTEGER)")
-        db!!.execSQL(CREATE_TABLE_USUARIOS);
+        val CREATE_TABLE_USUARIOS = ("CREATE TABLE ${NOMBRE_TABLA} ($COL_CORREO TEXT PRIMARY KEY, $COL_PASSWORD TEXT, $COL_TIPO TEXT, $COL_NOMBRE TEXT, $COL_PUESTO TEXT, $COL_SEXO TEXT, $COL_RANCHO TEXT, $COL_POTRERO INTEGER, $COL_EDAD INTEGER)")
+        db?.execSQL(CREATE_TABLE_USUARIOS)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
 
-     fun insertarUsuario(usuario: Usuario): Long {
+    fun crearTabla(){
+        val db = writableDatabase
+        val CREATE_TABLE_USUARIOS = ("CREATE TABLE ${NOMBRE_TABLA} ($COL_CORREO TEXT PRIMARY KEY, $COL_PASSWORD TEXT, $COL_TIPO TEXT, $COL_NOMBRE TEXT, $COL_PUESTO TEXT, $COL_SEXO TEXT, $COL_RANCHO TEXT, $COL_POTRERO INTEGER, $COL_EDAD INTEGER)")
+        db!!.execSQL(CREATE_TABLE_USUARIOS)
+    }
+
+    fun eliminarTabla() {
+        val db = writableDatabase
+        db.execSQL("DROP TABLE IF EXISTS $NOMBRE_TABLA") // Eliminar la tabla si existe
+        db.close()
+    }
+
+
+    fun insertarUsuario(usuario: Usuario): Long {
         val db = writableDatabase
         val valoresInsert = ContentValues()
         valoresInsert.put(COL_CORREO, usuario.correo)
@@ -64,5 +76,20 @@ class UsuariosBD (contexto: Context) : SQLiteOpenHelper (contexto, NOMBRE_BD, nu
         db.close()
         return usuarioValido
     }
-
+    fun obtenerRanchoDelUsuario(correo: String): String? {
+        val db = readableDatabase
+        var rancho: String? = null
+        val resultadoConsulta: Cursor = db.query(NOMBRE_TABLA, arrayOf(COL_RANCHO), "$COL_CORREO = ?", arrayOf(correo), null, null, null)
+        if (resultadoConsulta != null) {
+            if (resultadoConsulta.moveToFirst()) {
+                val colIndex = resultadoConsulta.getColumnIndex(COL_RANCHO)
+                if (colIndex != -1) {
+                    rancho = resultadoConsulta.getString(colIndex)
+                }
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return rancho
+    }
 }

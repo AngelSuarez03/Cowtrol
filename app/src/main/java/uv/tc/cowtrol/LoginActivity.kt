@@ -44,5 +44,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.tvCrearCuenta.setOnClickListener{
+            val int = Intent (this@LoginActivity, CrearCuentaActivity::class.java)
+            startActivity(int)
+        }
+
     }
 }

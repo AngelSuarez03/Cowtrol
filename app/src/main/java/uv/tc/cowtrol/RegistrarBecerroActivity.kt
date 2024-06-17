@@ -30,29 +30,38 @@ class RegistrarBecerroActivity : AppCompatActivity() {
     private lateinit var modelo: BecerroBD
     private var potreroSeleccionado: String = ""
     private lateinit var cargarBecerros : VisualizarBecerrosActivity
+    private lateinit var usuarioModelo: UsuariosBD
+    private lateinit var correo: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarBecerroBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
         modelo = BecerroBD(this@RegistrarBecerroActivity)
         cargarBecerros = VisualizarBecerrosActivity()
+        usuarioModelo = UsuariosBD(this@RegistrarBecerroActivity)
 
-        val correo = intent.getStringExtra("correo")
+        correo = intent.getStringExtra("correo") ?: ""
 
-        //modelo.dropTable()
+        // Si correo está vacío, mostramos un mensaje y cerramos la actividad
+        if (correo.isEmpty()) {
+            Toast.makeText(this, "Correo no recibido", Toast.LENGTH_LONG).show()
+            finish()
+            return
+        }
 
-        //modelo.crearTabla()
-
+        modelo.crearTabla()
         Log.d("RegistrarBecerroActivity", "Tabla becerro se está creando...")
 
         val spinner = binding.spinnerPotrero
 
-        binding.tvMacho.setOnClickListener{
+        binding.tvMacho.setOnClickListener {
             seleccionSexo("Macho")
         }
 
-        binding.tvHembra.setOnClickListener{
+        binding.tvHembra.setOnClickListener {
             seleccionSexo("Hembra")
         }
 
@@ -82,8 +91,8 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         }
 
         binding.btnRegistrarAnimal.setOnClickListener {
-
-            if(validarCamposBecerro()){
+            if (validarCamposBecerro()) {
+                val rancho = usuarioModelo.obtenerRanchoDelUsuario(correo) ?: ""
                 val nuevoBecerro = Becerro(
                     sexoSeleccionado.toString(),
                     binding.etNombreBecerro.text.toString(),
@@ -94,14 +103,13 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                     binding.etPesoDoce.text.toString().toFloat(),
                     potreroSeleccionado,
                     binding.etFechaNacimientoBecerro.text.toString(),
-                    correo.toString(),
-                    null
+                    rancho
                 )
                 agregarBecerro(nuevoBecerro)
-                cargarBecerros.cargarMisBecerros()
 
                 val intent = Intent(this@RegistrarBecerroActivity, MenuBecerroActivity::class.java )
                 intent.putExtra("sexoSeleccionado", sexoSeleccionado)
+                intent.putExtra("correo", correo)
                 startActivity(intent)
             }
         }
@@ -111,10 +119,9 @@ class RegistrarBecerroActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
     }
 
-    fun mostrarDatePicker(editText: EditText) {
+    private fun mostrarDatePicker(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -134,28 +141,27 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         binding.etFechaNacimientoBecerro.error = null
     }
 
-
-    fun seleccionSexo(sexo: String){
+    private fun seleccionSexo(sexo: String) {
         val textViewMacho = binding.tvMacho
         val textViewHembra = binding.tvHembra
 
-        if(sexo == "Macho"){
+        if (sexo == "Macho") {
             textViewMacho.setBackgroundResource(R.drawable.border_text_view_macho_seleccionado)
             textViewHembra.setBackgroundResource(R.drawable.border_text_view_hembra)
-        }else{
+        } else {
             textViewMacho.setBackgroundResource(R.drawable.border_text_view_macho)
             textViewHembra.setBackgroundResource(R.drawable.border_text_view_hembra_seleccionado)
         }
         sexoSeleccionado = sexo
     }
 
-    fun agregarBecerro(becerro: Becerro){
+    private fun agregarBecerro(becerro: Becerro) {
         Log.d("RegistrarBecerroActivity", "Insertando becerro en la base de datos...")
         val resultadoInsercion = modelo.insertarBecerro(becerro)
         var mensaje = ""
         val textViewMacho = binding.tvMacho
         val textViewHembra = binding.tvHembra
-        if(resultadoInsercion > 0){
+        if (resultadoInsercion > 0) {
             mensaje = "Becerro registrado exitosamente"
             textViewHembra.setBackgroundResource(R.drawable.border_text_view_hembra)
             textViewMacho.setBackgroundResource(R.drawable.border_text_view_macho)
@@ -168,49 +174,49 @@ class RegistrarBecerroActivity : AppCompatActivity() {
             binding.etPesoDoce.setText("")
             binding.etFechaNacimientoBecerro.setText("")
 
-            binding.etNombreBecerro.error=null
-            binding.etSinniga.error=null
-            binding.etEdadBecerro.error=null
-            binding.etPesoNacer.error=null
-            binding.etPesoDestete.error=null
-            binding.etPesoDoce.error=null
-            binding.etFechaNacimientoBecerro.error=null
-        }else{
+            binding.etNombreBecerro.error = null
+            binding.etSinniga.error = null
+            binding.etEdadBecerro.error = null
+            binding.etPesoNacer.error = null
+            binding.etPesoDestete.error = null
+            binding.etPesoDoce.error = null
+            binding.etFechaNacimientoBecerro.error = null
+        } else {
             mensaje = "Hubo un error al registrar el usuario, intentelo nuevamente"
         }
         Toast.makeText(this@RegistrarBecerroActivity, mensaje, Toast.LENGTH_LONG).show()
     }
 
-    fun validarCamposBecerro(): Boolean {
+    private fun validarCamposBecerro(): Boolean {
         var valido = true
 
-        if(sexoSeleccionado == null){
+        if (sexoSeleccionado == null) {
             Toast.makeText(this, "Selecciona el sexo", Toast.LENGTH_LONG).show()
             valido = false
         }
 
-        if(binding.etNombreBecerro.text.toString().isEmpty()){
+        if (binding.etNombreBecerro.text.toString().isEmpty()) {
             binding.etNombreBecerro.error = "Nombre obligatorio"
             valido = false
         }
 
-        if(binding.etSinniga.text.toString().isEmpty()){
+        if (binding.etSinniga.text.toString().isEmpty()) {
             binding.etSinniga.error = "SINIIGA obligatorio"
             valido = false
-        }else if(!binding.etSinniga.text.toString().matches((Regex("^\\d+\$")))){
+        } else if (!binding.etSinniga.text.toString().matches(Regex("^\\d+\$"))) {
             binding.etSinniga.error = "Ingrese solo números enteros"
-            false
+            valido = false
         }
 
-        if(binding.etEdadBecerro.text.toString().isEmpty()){
+        if (binding.etEdadBecerro.text.toString().isEmpty()) {
             binding.etEdadBecerro.error = "Edad obligatorio"
             valido = false
-        }else if(!binding.etEdadBecerro.text.toString().matches((Regex("^\\d+\$")))){
+        } else if (!binding.etEdadBecerro.text.toString().matches(Regex("^\\d+\$"))) {
             binding.etEdadBecerro.error = "Ingrese solo números enteros"
-            false
+            valido = false
         }
 
-        if(binding.etFechaNacimientoBecerro.text.toString().isEmpty()){
+        if (binding.etFechaNacimientoBecerro.text.toString().isEmpty()) {
             binding.etFechaNacimientoBecerro.error = "Fecha obligatoria"
             valido = false
         }
@@ -223,5 +229,4 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         val potreros = potreroBD.retornarPotrerosRegistrados()
         return potreros.map { it.numeroPotrero }
     }
-
 }

@@ -20,54 +20,48 @@ class ModificarBecerroActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityModificarBecerroBinding
     private var potreroSeleccionado: String = ""
+    private lateinit var correo: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityModificarBecerroBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+        correo = intent.getStringExtra("correo") ?: ""
+
         val siiniga = intent.getIntExtra("siiniga", 0)
-
-        val correo = intent.getStringExtra("correo")
-
         val sexo = intent.getStringExtra("sexo")
-
         val edad = intent.getIntExtra("edad", 0)
-
         val nombre = intent.getStringExtra("nombre")
-
         val pesoNacer = intent.getFloatExtra("pesoNacer", 0F)
-
         val pesoDestete = intent.getFloatExtra("pesoDestete", 0F)
-
         val pesoDoce = intent.getFloatExtra("pesoDoce", 0F)
-
         val fechaNa = intent.getStringExtra("fechaNa")
-
-        val potrero = intent.getIntExtra("potrero", -1)
+        val rancho = intent.getStringExtra("rancho")
+        val potrero = intent.getStringExtra("potrero")
 
         binding.etSinniga.setText(siiniga.toString())
         binding.etEdadBecerro.setText(edad.toString())
-        binding.etNombreBecerro.setText(nombre.toString())
+        binding.etNombreBecerro.setText(nombre)
         binding.etPesoNacer.setText(pesoNacer.toString())
         binding.etPesoDestete.setText(pesoDestete.toString())
         binding.etPesoDoce.setText(pesoDoce.toString())
-        binding.etFechaNacimientoBecerro.setText(fechaNa.toString())
+        binding.etFechaNacimientoBecerro.setText(fechaNa)
+
+        // Setear el potrero seleccionado
+        potreroSeleccionado = potrero ?: ""
 
         val spinner = binding.spinnerPotrero
-
         val nombresPotreros = cargarPotreros()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nombresPotreros)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
+        spinner.setSelection(nombresPotreros.indexOf(potreroSeleccionado))
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 potreroSeleccionado = parent?.getItemAtPosition(position).toString()
             }
 
@@ -94,11 +88,9 @@ class ModificarBecerroActivity : AppCompatActivity() {
             val pesoDoce = binding.etPesoDoce.text.toString().toFloat()
             val fecha = binding.etFechaNacimientoBecerro.text.toString()
 
-            // Crear objeto Becerro con los datos actualizados
             val becerroActualizar = Becerro(
-                sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, correo ?: "", null)
+                sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, rancho ?: "")
 
-            // Actualizar el becerro en la base de datos
             val becerroBD = BecerroBD(this)
             val filasAfectadas = becerroBD.actualizarBecerro(becerroActualizar)
 
@@ -111,8 +103,8 @@ class ModificarBecerroActivity : AppCompatActivity() {
                 binding.etPesoDoce.setText("")
                 binding.etFechaNacimientoBecerro.setText("")
                 val intent = Intent(this@ModificarBecerroActivity, VisualizarBecerrosActivity::class.java)
+                intent.putExtra("correo", correo)
                 startActivity(intent)
-
             } else {
                 Toast.makeText(this, "Error al actualizar el becerro", Toast.LENGTH_SHORT).show()
             }
@@ -136,9 +128,9 @@ class ModificarBecerroActivity : AppCompatActivity() {
         Toast.makeText(this, "El sexo del becerro no se puede modificar", Toast.LENGTH_SHORT).show()
     }
 
-    private fun cargarPotreros(): List<Int> {
+    private fun cargarPotreros(): List<String> {
         val potreroBD = PotreroBD(this@ModificarBecerroActivity)
         val potreros = potreroBD.retornarPotrerosRegistrados()
-        return potreros.map { it.numeroPotrero }
+        return potreros.map { it.numeroPotrero.toString() }
     }
 }

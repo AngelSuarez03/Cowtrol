@@ -49,7 +49,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
     }
 
     private fun cargarBecerros(): List<Int> {
-        val becerro = becerrosBD.seleccionarBecerrosPorCorreo(correo.toString())
+        val becerro = becerrosBD.seleccionarBecerrosPorRancho(correo.toString())
         return becerro.map { it.siiniga }
     }
 }
