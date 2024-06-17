@@ -58,6 +58,9 @@ class ControlReproduccionActivity : AppCompatActivity() {
                 agregarControl(controlReproduccion)
             }
         }
+        binding.btnRegresar.setOnClickListener {
+            finish()
+        }
     }
 
     private fun llenarSpinners(): Unit {
@@ -120,6 +123,7 @@ class ControlReproduccionActivity : AppCompatActivity() {
         if(resultadoIncercion > 0) {
             msj = "Datos insertados correctamente"
             limpiarCampos()
+            finish()
         }else
             msj = "Error al insertar los datos"
 

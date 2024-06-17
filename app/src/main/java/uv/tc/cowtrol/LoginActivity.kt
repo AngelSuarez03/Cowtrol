@@ -25,9 +25,12 @@ class LoginActivity : AppCompatActivity() {
 
         //potreroBd.crearTablaPotrero()
         modelo = UsuariosBD(this@LoginActivity)
+        //modelo.eliminarTabla()
+        //modelo.crearTabla()
 
         becerroBD = BecerroBD(this@LoginActivity)
-        //becerroBD.crearTabla()
+        becerroBD.crearTabla()
+        //becerroBD.eliminarTabla()
 
         controlBD = ControlReproduccionBD(this@LoginActivity)
         //controlBD.crearTabla()

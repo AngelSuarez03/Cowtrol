@@ -31,8 +31,13 @@ class PrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.lnEvento.setOnClickListener {
+        binding.lnAsesoriaVeterinaria.setOnClickListener {
             val intent = Intent(this@PrincipalActivity, SolicitarAsesoriaVeterinariaActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.controlReproduccion.setOnClickListener {
+            val intent = Intent(this@PrincipalActivity, ControlReproduccionMainActivity::class.java)
             startActivity(intent)
         }
 

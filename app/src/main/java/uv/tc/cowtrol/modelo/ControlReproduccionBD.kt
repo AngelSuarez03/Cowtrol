@@ -1,11 +1,14 @@
 package uv.tc.cowtrol.modelo
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import uv.tc.cowtrol.poko.ControlReproduccion
+import uv.tc.cowtrol.poko.Potrero
 
 class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMBRE_BD, null, VERSION_BD) {
 
@@ -62,6 +65,45 @@ class ControlReproduccionBD (contexto: Context): SQLiteOpenHelper(contexto, NOMB
         val filasAfectadas = db.insert(NOMBRE_TABLA, null, valoresInsert)
         db.close()
         return filasAfectadas
+    }
+
+    @SuppressLint("Range")
+    fun obtenerControles(): List<ControlReproduccion>{
+        val db = readableDatabase
+        val controles = mutableListOf<ControlReproduccion>()
+        val resultadoConsulta: Cursor? = db.query(NOMBRE_TABLA, null, null,null,null,null,null)
+        if(resultadoConsulta != null){
+            while (resultadoConsulta.moveToNext()){
+                val numeroPotrero = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                    COL_POTRERO))
+                val siniiga = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                    COL_SINIIGA_ANIMAL
+                ))
+                val fechaRevision = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_FECHA_REVISION
+                ))
+                val temporadaReproduccion = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_TEMPORADA_REPRODUCCION
+                ))
+                val diaParto = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_DIA_PARTO
+                ))
+                val tipo = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_TIPO
+                ))
+                val descripcion = resultadoConsulta.getString(resultadoConsulta.getColumnIndex(
+                    COL_Descripcion
+                ))
+                val cargada = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(
+                    COL_CARGADA
+                ))
+                val control = ControlReproduccion(numeroPotrero, siniiga, fechaRevision, temporadaReproduccion, diaParto, tipo, descripcion, cargada.toString().toBoolean())
+                controles.add(control)
+            }
+            resultadoConsulta.close()
+        }
+        db.close()
+        return controles
     }
 
 }

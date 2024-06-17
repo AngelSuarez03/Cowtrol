@@ -38,7 +38,6 @@ class RegistrarBecerroActivity : AppCompatActivity() {
         binding = ActivityRegistrarBecerroBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         modelo = BecerroBD(this@RegistrarBecerroActivity)
         cargarBecerros = VisualizarBecerrosActivity()
         usuarioModelo = UsuariosBD(this@RegistrarBecerroActivity)
