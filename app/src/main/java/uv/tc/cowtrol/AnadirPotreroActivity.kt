@@ -18,7 +18,7 @@ class AnadirPotreroActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         modelo = PotreroBD(this@AnadirPotreroActivity)
-        //modelo.crearTablaPotrero()
+        modelo.crearTablaPotrero()
         binding.btRegistrarPotrero.setOnClickListener{
             if (validarDatos()){
                 val potreroNuevo = Potrero(binding.etNumeroPotrero.text.toString().toInt(),binding.etNombre.text.toString(),binding.etCapacidad.text.toString().toInt(),

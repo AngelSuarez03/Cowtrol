@@ -37,8 +37,7 @@ class MenuBecerroActivity : AppCompatActivity() {
         }
 
         binding.btnRegresar.setOnClickListener{
-            val intent = Intent(this@MenuBecerroActivity, PrincipalActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }
