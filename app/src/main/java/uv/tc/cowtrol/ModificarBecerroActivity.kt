@@ -52,7 +52,7 @@ class ModificarBecerroActivity : AppCompatActivity() {
         binding.etPesoDoce.setText(pesoDoce.toString())
         binding.etFechaNacimientoBecerro.setText(fechaNa)
 
-        // Setear el potrero seleccionado
+
         potreroSeleccionado = potrero ?: ""
 
         val spinner = binding.spinnerPotrero
@@ -89,36 +89,45 @@ class ModificarBecerroActivity : AppCompatActivity() {
         }
 
         binding.btnActualizarAnimal.setOnClickListener {
-            val nombre = binding.etNombreBecerro.text.toString()
-            val edad = binding.etEdadBecerro.text.toString().toInt()
-            val pesoNacer = binding.etPesoNacer.text.toString().toFloat()
-            val pesoDestete = binding.etPesoDestete.text.toString().toFloat()
-            val pesoDoce = binding.etPesoDoce.text.toString().toFloat()
-            val fecha = binding.etFechaNacimientoBecerro.text.toString()
+            if(validarCamposBecerro()){
+                val nombre = binding.etNombreBecerro.text.toString()
+                val edad = binding.etEdadBecerro.text.toString().toInt()
+                val pesoNacer = binding.etPesoNacer.text.toString().toFloat()
+                val pesoDestete = binding.etPesoDestete.text.toString().toFloat()
+                val pesoDoce = binding.etPesoDoce.text.toString().toFloat()
+                val fecha = binding.etFechaNacimientoBecerro.text.toString()
 
-            val becerroActualizar = Becerro(
-                sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, rancho ?: "")
+                val becerroActualizar = Becerro(
+                    sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, rancho ?: "")
 
-            val becerroBD = BecerroBD(this)
-            val filasAfectadas = becerroBD.actualizarBecerro(becerroActualizar)
+                val becerroBD = BecerroBD(this)
+                val filasAfectadas = becerroBD.actualizarBecerro(becerroActualizar)
 
-            if (filasAfectadas > 0) {
-                Toast.makeText(this, "Becerro actualizado correctamente", Toast.LENGTH_SHORT).show()
-                binding.etNombreBecerro.setText("")
-                binding.etEdadBecerro.setText("")
-                binding.etPesoNacer.setText("")
-                binding.etPesoDestete.setText("")
-                binding.etPesoDoce.setText("")
-                binding.etFechaNacimientoBecerro.setText("")
-                val intent = Intent(this@ModificarBecerroActivity, VisualizarBecerrosActivity::class.java)
-                intent.putExtra("correo", correo)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Error al actualizar el becerro", Toast.LENGTH_SHORT).show()
+                if (filasAfectadas > 0) {
+                    Toast.makeText(this, "Becerro actualizado correctamente", Toast.LENGTH_SHORT).show()
+                    binding.etNombreBecerro.setText("")
+                    binding.etNombreBecerro.error = null
+                    binding.etEdadBecerro.setText("")
+                    binding.etEdadBecerro.error = null
+                    binding.etPesoNacer.setText("")
+                    binding.etPesoDestete.setText("")
+                    binding.etPesoDoce.setText("")
+                    binding.etFechaNacimientoBecerro.setText("")
+                    binding.etFechaNacimientoBecerro.error = null
+                    val intent = Intent(this@ModificarBecerroActivity, VisualizarBecerrosActivity::class.java)
+                    intent.putExtra("correo", correo)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Error al actualizar el becerro", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
         binding.btnRegresarMenuBecerro.setOnClickListener {
+            val intent = Intent(this@ModificarBecerroActivity, VisualizarBecerrosActivity::class.java)
+            intent.putExtra("correo", correo)
+            startActivity(intent)
             finish()
         }
     }
@@ -162,7 +171,32 @@ class ModificarBecerroActivity : AppCompatActivity() {
             month,
             dayOfMonth
         )
+
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
         datePickerDialog.show()
         binding.etFechaNacimientoBecerro.error = null
+    }
+    private fun validarCamposBecerro(): Boolean {
+        var valido = true
+
+        if (binding.etNombreBecerro.text.toString().isEmpty()) {
+            binding.etNombreBecerro.error = "Nombre obligatorio"
+            valido = false
+        }
+
+        if (binding.etEdadBecerro.text.toString().isEmpty()) {
+            binding.etEdadBecerro.error = "Edad obligatoria"
+            valido = false
+        } else if (!binding.etEdadBecerro.text.toString().matches(Regex("^\\d+\$"))) {
+            binding.etEdadBecerro.error = "Ingrese solo números enteros"
+            valido = false
+        }
+
+        if (binding.etFechaNacimientoBecerro.text.toString().isEmpty()) {
+            binding.etFechaNacimientoBecerro.error = "Fecha obligatoria"
+            valido = false
+        }
+        return valido
     }
 }

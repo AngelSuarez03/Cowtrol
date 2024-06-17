@@ -225,7 +225,8 @@
                 android:textSize="23sp"
                 android:textColor="@color/black"
                 android:inputType="numberDecimal"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:maxLength="5"/>
 
             <EditText
                 android:id="@+id/et_peso_destete"
@@ -239,7 +240,8 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:inputType="numberDecimal"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:maxLength="5"/>
 
             <EditText
                 android:id="@+id/et_peso_doce"
@@ -253,7 +255,8 @@
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:inputType="numberDecimal"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:maxLength="5"/>
         </LinearLayout>
 
         <LinearLayout

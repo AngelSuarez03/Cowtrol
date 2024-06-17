@@ -37,6 +37,11 @@ class MenuBecerroActivity : AppCompatActivity() {
         }
 
         binding.btnRegresar.setOnClickListener{
+            val intent = Intent(this, PrincipalActivity::class.java).apply {
+                putExtra("correo", correo)
+                putExtra("sexoSeleccionado", sexoSeleccionado)
+            }
+            startActivity(intent)
             finish()
         }
     }

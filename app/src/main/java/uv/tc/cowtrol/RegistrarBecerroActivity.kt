@@ -110,11 +110,14 @@ class RegistrarBecerroActivity : AppCompatActivity() {
                 intent.putExtra("sexoSeleccionado", sexoSeleccionado)
                 intent.putExtra("correo", correo)
                 startActivity(intent)
+                finish()
             }
         }
 
         binding.btnRegresarMenuBecerro.setOnClickListener {
             val intent = Intent(this@RegistrarBecerroActivity, MenuBecerroActivity::class.java )
+            intent.putExtra("sexoSeleccionado", sexoSeleccionado)
+            intent.putExtra("correo", correo)
             startActivity(intent)
             finish()
         }
@@ -136,6 +139,9 @@ class RegistrarBecerroActivity : AppCompatActivity() {
             month,
             dayOfMonth
         )
+
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
         datePickerDialog.show()
         binding.etFechaNacimientoBecerro.error = null
     }
