@@ -42,6 +42,9 @@ class RegistrarTrabajadorActivity : AppCompatActivity() {
             registrarTrabajador(usuario)
             dialogoPassword(password)
         }
+        binding.btnRegresar.setOnClickListener{
+            finish()
+        }
     }
 
     private fun opcionesSpinnerPuesto(){
