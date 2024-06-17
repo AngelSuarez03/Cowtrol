@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import uv.tc.cowtrol.R
 
-class AdaptadorVeterinario(val onClickListener:(Int)->Unit ):RecyclerView.Adapter<AdaptadorVeterinario.ViewHolder>() {
+class AdaptadorVeterinario(val onClickListener:(String)->Unit ):RecyclerView.Adapter<AdaptadorVeterinario.ViewHolder>() {
 
     val nombre= arrayOf("Alberto Martínez Álvarez","Raúl Cortinez Vázquez","Beto Albarado")
     val telefono = arrayOf(2284413843,2831462214,4789641236)
@@ -28,7 +28,15 @@ class AdaptadorVeterinario(val onClickListener:(Int)->Unit ):RecyclerView.Adapte
         viewHolder.imagen.setImageResource(imagen[position])
         viewHolder.icono.setImageResource(icono[position])
         viewHolder.icono.setOnClickListener {
-            onClickListener(position)
+            if (position==0){
+                onClickListener(2284413843.toString())
+            }
+            if (position==1){
+                onClickListener(2831462214.toString())
+            }
+            if (position==2){
+                onClickListener(4789641236.toString())
+            }
         }
     }
 
@@ -41,11 +49,5 @@ class AdaptadorVeterinario(val onClickListener:(Int)->Unit ):RecyclerView.Adapte
         var telefono: TextView=itemView.findViewById(R.id.tv_telefono_veterinario)
         var imagen:ImageView=itemView.findViewById(R.id.iv_imagen_veterinario)
         var icono:ImageButton=itemView.findViewById(R.id.ib_llamada)
-
-        init {
-            itemView.rootView.setOnClickListener {
-                onClickListener(adapterPosition)
-            }
         }
     }
-}
