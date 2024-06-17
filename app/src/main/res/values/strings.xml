@@ -11,9 +11,9 @@
     <string name="tv_usuario">Usuario</string>
     <string name="tv_trabajador">Trabajador</string>
     <string name="tv_becerro">Becerros</string>
-    <string name="tv_veterinario">Veterinarios</string>
     <string name="tv_reporte">Reportes</string>
-    <string name="tv_evento">Eventos</string>
+    <string name="tv_control_reproduccion">Control de \nreproducción </string>
+    <string name="tv_asesoria">Asesoria \nVeterinaria</string>
     <string name="btn_cerrar_sesion">Cerrar Sesion</string>
 
     <!-- Registrar Trabajador Activity -->
