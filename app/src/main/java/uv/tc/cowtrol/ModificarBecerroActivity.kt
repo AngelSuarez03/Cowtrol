@@ -153,7 +153,7 @@ class ModificarBecerroActivity : AppCompatActivity() {
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
-            this,
+            this, R.style.CustomDatePickerDialog,
             { _, selectedYear, selectedMonth, selectedDayOfMonth ->
                 val fechaSeleccionada = "$selectedDayOfMonth/${selectedMonth + 1}/$selectedYear"
                 editText.setText(fechaSeleccionada)
