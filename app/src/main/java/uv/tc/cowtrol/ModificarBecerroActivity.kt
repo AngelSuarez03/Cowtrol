@@ -51,18 +51,18 @@ class ModificarBecerroActivity : AppCompatActivity() {
         val rancho = intent.getStringExtra("rancho")
         val potrero = intent.getStringExtra("potrero")
 
-        binding.etSinniga.setText(siiniga.toString())
-        binding.etEdadBecerro.setText(edad.toString())
-        binding.etNombreBecerro.setText(nombre)
-        binding.etPesoNacer.setText(pesoNacer.toString())
-        binding.etPesoDestete.setText(pesoDestete.toString())
-        binding.etPesoDoce.setText(pesoDoce.toString())
-        binding.etFechaNacimientoBecerro.setText(fechaNa)
+        binding.etSinnigaModificar.setText(siiniga.toString())
+        binding.etEdadBecerroModificar.setText(edad.toString())
+        binding.etNombreBecerroModificar.setText(nombre)
+        binding.etPesoNacerModificar.setText(pesoNacer.toString())
+        binding.etPesoDesteteModificar.setText(pesoDestete.toString())
+        binding.etPesoDoceModificar.setText(pesoDoce.toString())
+        binding.etFechaNacimientoBecerroModificar.setText(fechaNa)
 
 
         potreroSeleccionado = potrero ?: ""
 
-        val spinner = binding.spinnerPotrero
+        val spinner = binding.spinnerPotreroModificar
         val nombresPotreros = cargarPotreros()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nombresPotreros)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -80,29 +80,29 @@ class ModificarBecerroActivity : AppCompatActivity() {
             }
         }
 
-        binding.tvMacho.setOnClickListener {
+        binding.tvMachoModificar.setOnClickListener {
             mostrarMensajeNoEditable()
         }
 
-        binding.tvHembra.setOnClickListener {
+        binding.tvHembraModificar.setOnClickListener {
             mostrarMensajeNoEditable()
         }
 
         cambiarFondoSexo(sexo)
 
-        val fechaNacimientoBecerro = binding.etFechaNacimientoBecerro
+        val fechaNacimientoBecerro = binding.etFechaNacimientoBecerroModificar
         fechaNacimientoBecerro.setOnClickListener {
             mostrarDatePicker(fechaNacimientoBecerro)
         }
 
         binding.btnActualizarAnimal.setOnClickListener {
             if(validarCamposBecerro()){
-                val nombre = binding.etNombreBecerro.text.toString()
-                val edad = binding.etEdadBecerro.text.toString().toInt()
-                val pesoNacer = binding.etPesoNacer.text.toString().toFloat()
-                val pesoDestete = binding.etPesoDestete.text.toString().toFloat()
-                val pesoDoce = binding.etPesoDoce.text.toString().toFloat()
-                val fecha = binding.etFechaNacimientoBecerro.text.toString()
+                val nombre = binding.etNombreBecerroModificar.text.toString()
+                val edad = binding.etEdadBecerroModificar.text.toString().toInt()
+                val pesoNacer = binding.etPesoNacerModificar.text.toString().toFloat()
+                val pesoDestete = binding.etPesoDesteteModificar.text.toString().toFloat()
+                val pesoDoce = binding.etPesoDoceModificar.text.toString().toFloat()
+                val fecha = binding.etFechaNacimientoBecerroModificar.text.toString()
 
                 val becerroActualizar = Becerro(
                     sexo ?: "", nombre, siiniga, edad, pesoNacer, pesoDestete, pesoDoce, potreroSeleccionado, fecha, rancho ?: "")
@@ -112,15 +112,15 @@ class ModificarBecerroActivity : AppCompatActivity() {
 
                 if (filasAfectadas > 0) {
                     Toast.makeText(this, "Becerro actualizado correctamente", Toast.LENGTH_SHORT).show()
-                    binding.etNombreBecerro.setText("")
-                    binding.etNombreBecerro.error = null
-                    binding.etEdadBecerro.setText("")
-                    binding.etEdadBecerro.error = null
-                    binding.etPesoNacer.setText("")
-                    binding.etPesoDestete.setText("")
-                    binding.etPesoDoce.setText("")
-                    binding.etFechaNacimientoBecerro.setText("")
-                    binding.etFechaNacimientoBecerro.error = null
+                    binding.etNombreBecerroModificar.setText("")
+                    binding.etNombreBecerroModificar.error = null
+                    binding.etEdadBecerroModificar.setText("")
+                    binding.etEdadBecerroModificar.error = null
+                    binding.etPesoNacerModificar.setText("")
+                    binding.etPesoDesteteModificar.setText("")
+                    binding.etPesoDoceModificar.setText("")
+                    binding.etFechaNacimientoBecerroModificar.setText("")
+                    binding.etFechaNacimientoBecerroModificar.error = null
                     val intent = Intent(this@ModificarBecerroActivity, VisualizarBecerrosActivity::class.java)
                     intent.putExtra("correo", correo)
                     startActivity(intent)
@@ -139,8 +139,8 @@ class ModificarBecerroActivity : AppCompatActivity() {
         }
     }
     private fun cambiarFondoSexo(sexo: String?) {
-        val textViewMacho = binding.tvMacho
-        val textViewHembra = binding.tvHembra
+        val textViewMacho = binding.tvMachoModificar
+        val textViewHembra = binding.tvHembraModificar
 
         if (sexo == "Macho") {
             textViewMacho.setBackgroundResource(R.drawable.border_text_view_macho_seleccionado)
@@ -182,26 +182,26 @@ class ModificarBecerroActivity : AppCompatActivity() {
         datePickerDialog.datePicker.maxDate = calendar.timeInMillis
 
         datePickerDialog.show()
-        binding.etFechaNacimientoBecerro.error = null
+        binding.etFechaNacimientoBecerroModificar.error = null
     }
     private fun validarCamposBecerro(): Boolean {
         var valido = true
 
-        if (binding.etNombreBecerro.text.toString().isEmpty()) {
-            binding.etNombreBecerro.error = "Nombre obligatorio"
+        if (binding.etNombreBecerroModificar.text.toString().isEmpty()) {
+            binding.etNombreBecerroModificar.error = "Nombre obligatorio"
             valido = false
         }
 
-        if (binding.etEdadBecerro.text.toString().isEmpty()) {
-            binding.etEdadBecerro.error = "Edad obligatoria"
+        if (binding.etEdadBecerroModificar.text.toString().isEmpty()) {
+            binding.etEdadBecerroModificar.error = "Edad obligatoria"
             valido = false
-        } else if (!binding.etEdadBecerro.text.toString().matches(Regex("^\\d+\$"))) {
-            binding.etEdadBecerro.error = "Ingrese solo números enteros"
+        } else if (!binding.etEdadBecerroModificar.text.toString().matches(Regex("^\\d+\$"))) {
+            binding.etEdadBecerroModificar.error = "Ingrese solo números enteros"
             valido = false
         }
 
-        if (binding.etFechaNacimientoBecerro.text.toString().isEmpty()) {
-            binding.etFechaNacimientoBecerro.error = "Fecha obligatoria"
+        if (binding.etFechaNacimientoBecerroModificar.text.toString().isEmpty()) {
+            binding.etFechaNacimientoBecerroModificar.error = "Fecha obligatoria"
             valido = false
         }
         return valido

@@ -47,7 +47,7 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/tv_macho"
+                android:id="@+id/tv_macho_modificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/macho"
@@ -68,7 +68,7 @@
                 android:focusable="false"/>
 
             <TextView
-                android:id="@+id/tv_hembra"
+                android:id="@+id/tv_hembra_modificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hembra"
@@ -107,7 +107,7 @@
             android:layout_gravity="center" />
 
         <EditText
-            android:id="@+id/et_nombre_becerro"
+            android:id="@+id/et_nombre_becerro_modificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -165,7 +165,7 @@
             android:gravity="center_horizontal">
 
             <EditText
-                android:id="@+id/et_sinniga"
+                android:id="@+id/et_sinniga_modificar"
                 android:layout_width="134dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -179,7 +179,7 @@
                 android:enabled="false"/>
 
             <EditText
-                android:id="@+id/et_edad_becerro"
+                android:id="@+id/et_edad_becerro_modificar"
                 android:layout_width="134dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -215,7 +215,7 @@
             android:layout_marginTop="8dp">
 
             <EditText
-                android:id="@+id/et_peso_nacer"
+                android:id="@+id/et_peso_nacer_modificar"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_edit_text"
@@ -229,7 +229,7 @@
                 android:maxLength="5"/>
 
             <EditText
-                android:id="@+id/et_peso_destete"
+                android:id="@+id/et_peso_destete_modificar"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -244,7 +244,7 @@
                 android:maxLength="5"/>
 
             <EditText
-                android:id="@+id/et_peso_doce"
+                android:id="@+id/et_peso_doce_modificar"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -281,7 +281,7 @@
                 />
 
             <Spinner
-                android:id="@+id/spinner_potrero"
+                android:id="@+id/spinner_potrero_modificar"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -304,7 +304,7 @@
             android:layout_gravity="center" />
 
         <EditText
-            android:id="@+id/et_fecha_nacimiento_becerro"
+            android:id="@+id/et_fecha_nacimiento_becerro_modificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
